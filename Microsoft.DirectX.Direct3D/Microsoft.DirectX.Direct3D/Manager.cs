@@ -1,0 +1,140 @@
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2013 Alistair Leslie-Hughes
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+using System;
+
+namespace Microsoft.DirectX.Direct3D
+{
+	public sealed class Manager : MarshalByRefObject
+	{
+		public static AdapterListCollection Adapters {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		static Manager ()
+		{
+		}
+
+		public override bool Equals (object compare)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool operator == (Manager left, Manager right)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool operator != (Manager left, Manager right)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public override int GetHashCode ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceType (int adapter, DeviceType checkType, Format displayFormat, Format backBufferFormat, bool windowed)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceType (int adapter, DeviceType checkType, Format displayFormat, Format backBufferFormat, bool windowed, out int result)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat, out int result)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, Format checkFormat)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, Format checkFormat, out int result)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceMultiSampleType (int adapter, DeviceType deviceType, Format surfaceFormat, bool windowed, MultiSampleType multiSampleType, out int result, out int qualityLevels)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceMultiSampleType (int adapter, DeviceType deviceType, Format surfaceFormat, bool windowed, MultiSampleType multiSampleType)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDepthStencilMatch (int adapter, DeviceType deviceType, Format adapterFormat, Format renderTargetFormat, DepthFormat depthStencilFormat, out int result)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDepthStencilMatch (int adapter, DeviceType deviceType, Format adapterFormat, Format renderTargetFormat, DepthFormat depthStencilFormat)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceFormatConversion (int adapter, DeviceType deviceType, Format sourceFormat, Format targetFormat, out int result)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool CheckDeviceFormatConversion (int adapter, DeviceType deviceType, Format sourceFormat, Format targetFormat)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static Caps GetDeviceCaps (int adapter, DeviceType deviceType)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static IntPtr GetAdapterMonitor (int adapter)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool DisableD3DSpy ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		public static bool GenerateD3DSpyBreak ()
+		{
+			throw new NotImplementedException ();
+		}
+	}
+}
+

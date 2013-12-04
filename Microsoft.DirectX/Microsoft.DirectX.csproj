@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53A53B8E-C9EF-4B7C-AB48-47B45F36BA3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.DirectX</RootNamespace>
+    <AssemblyName>Microsoft.DirectX</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Microsoft.DirectX\ColorValue.cs" />
+    <Compile Include="Microsoft.DirectX\DirectXException.cs" />
+    <Compile Include="Microsoft.DirectX\Matrix.cs" />
+    <Compile Include="Microsoft.DirectX\Quaternion.cs" />
+    <Compile Include="Microsoft.DirectX\Vector2.cs" />
+    <Compile Include="Microsoft.DirectX\Vector3.cs" />
+    <Compile Include="Microsoft.DirectX\Vector4.cs" />
+    <Compile Include="Microsoft.DirectX\GraphicsStream.cs" />
+    <Compile Include="Microsoft.DirectX\GraphicsBuffer.cs" />
+    <Compile Include="Microsoft.DirectX\Plane.cs" />
+    <Compile Include="Microsoft.DirectX\UnsafeNativeMethods.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Microsoft.DirectX\" />
+  </ItemGroup>
+</Project>

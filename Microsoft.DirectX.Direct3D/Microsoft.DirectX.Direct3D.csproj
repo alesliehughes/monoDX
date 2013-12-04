@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4DC3E71-F97F-4A01-A641-3513E69DE3C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.DirectX.Direct3D</RootNamespace>
+    <AssemblyName>Microsoft.DirectX.Direct3D</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DStateBlock9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\AdapterDetails.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\AdapterInformation.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\AdapterListCollection.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\AddressCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\BackBufferType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\BasisType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Blend.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\BlendCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Caps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ComparisonCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\CreateFlags.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\CursorCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeclarationTypeCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DepthFormat.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeviceCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeviceType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DisplayMode.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DisplayModeCollection.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DriverCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\FillMode.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\FilterCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\FogMode.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Format.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\LineCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Manager.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\MiscCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\MultiSampleType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PixelShaderCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Pool.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PresentFlag.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PresentInterval.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PresentParameters.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\RasterCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ResourceType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ShadeCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ShaderFlags.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\StateBlock.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\StateBlockType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\StencilCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\SurfaceDescription.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\SwapEffect.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureOperationCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Usage.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexFormatCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexFormats.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexProcessingCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexShaderCaps.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Device.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\CustomVertex.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\CubeMapFace.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\BaseTexture.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Resource.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ImageInformation.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ImageFileFormat.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureFilter.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PaletteEntry.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Filter.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Material.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DrawStringFormat.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Texture.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\LockFlags.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\tagRECT.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DTexture9.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DBaseTexture9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Surface.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DSurface9.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DResource9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexElement.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeclarationType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeclarationMethod.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeclarationUsage.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\IndexBuffer.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexBuffer.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DCubeTexture9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\CubeTexture.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VolumeTexture.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DVolumeTexture9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Box.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VolumeDescription.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\LockedBox.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Volume.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DVolume9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeviceLostException.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\GraphicsException.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\BehaviorFlags.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DeviceCreationParameters.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DriverInternalErrorException.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DDevice9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TrianglePatchInformation.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\DegreeType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\GammaRamp.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ClearFlags.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TransformType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ClipStatus.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ClipStatusFlags.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\RenderStates.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\SamplerStageStates.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureStageStates.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\RasterStatus.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PrimitiveType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ClipPlanes.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ClipPlane.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\RectanglePatchInformation.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexDeclaration.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DVertexDeclaration9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\LightsCollection.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Light.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\_D3DLIGHT9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\LightType.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PixelShader.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DPixelShader9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\SamplerStateManagerCollection.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureStateManagerCollection.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Transforms.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\RenderStateManager.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexShader.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Viewport.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ValidateDeviceParams.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\SwapChain.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureOperation.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DSwapChain9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Present.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\InterfaceGuid.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureStateManager.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureArgument.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureTransform.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\BlendOperation.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ColorWriteEnable.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Compare.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\StencilOperation.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ColorSource.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\WrapCoordinates.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ShadeMode.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\PatchEdge.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexBlend.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\Cull.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\SamplerStateManager.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureAddress.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\ResultCode.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DVertexBuffer9.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\VertexBufferDescription.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Microsoft.DirectX.PrivateImplementationDetails\" />
+    <Folder Include="Microsoft.DirectX.Direct3D\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.DirectX\Microsoft.DirectX.csproj">
+      <Project>{53A53B8E-C9EF-4B7C-AB48-47B45F36BA3E}</Project>
+      <Name>Microsoft.DirectX</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
