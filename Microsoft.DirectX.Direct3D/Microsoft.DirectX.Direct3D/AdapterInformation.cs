@@ -26,10 +26,6 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class AdapterInformation
 	{
-		public AdapterInformation ()
-		{
-		}
-
 		public DisplayModeCollection SupportedDisplayModes {
 			get {
 				throw new NotImplementedException ();
