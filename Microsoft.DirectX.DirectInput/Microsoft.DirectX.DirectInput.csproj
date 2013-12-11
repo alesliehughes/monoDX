@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69E5220D-7509-44B5-81E9-A2CA3ED0FACF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.DirectX.DirectInput</RootNamespace>
+    <AssemblyName>Microsoft.DirectX.DirectInput</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ActionAttributeFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ActionMapControl.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ActionMechanism.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Any.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ApplyActionMap.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ArcadePlatform.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ArcadeSideToSide.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\AxesDataFormat.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\BrowserControl.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Button.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Cad2DControl.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Cad3DControl.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\CadFlyBy.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\CadModel.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ConfigureDevicesFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\CooperativeLevelFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DataFormatFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceClass.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceData.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceDataFormat.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceType.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeControl.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeDriving.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeFirstPerson.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeFlight.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeGamePad.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeJoystick.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeKeyboard.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeMouse.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeRemote.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeScreenPtr.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceTypeSupplemental.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DI.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DrivingCombat.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DrivingMecha.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DrivingRace.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DrivingTank.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectParameterFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectStartFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectType.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EnumBySemanticsReason.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EnumDevicesBySemanticsFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EnumDevicesFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FightingFps.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FightingHandToHand.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FightingThirdPerson.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FileEffectsFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FlyingCivilian.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FlyingHelicopter.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FlyingMilitary.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ForceFeedbackCommand.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ForceFeedbackGuid.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ForceFeedbackStates.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ImageFileType.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\JoystickOffset.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Key.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Keyboard.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\MaxPoints.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Mouse.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\MouseOffset.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ObjectInstanceFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ParameterHow.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\PropertyType.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\PropRangeFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\RemoteControl.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ReturnCode.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SetActionMapReturnCodes.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SpaceSim.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsBaseballBatting.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsBaseBallField.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsBaseballPitch.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsBasketballDefense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsBasketballOffense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsBikingMountain.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsFishing.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsFootballDefense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsFootballField.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsFootballOffense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsFootballQuarterback.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsGolf.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsHockeyDefense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsHockeyGoalie.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsHockeyOffense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsHunting.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsRaquet.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsSkiing.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsSoccerDefense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SportsSoccerOffense.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\StandardEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\StrategyRolePlaying.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\StrategyTurn.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\TextAlign.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\TimeStamp.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Voice.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectInformation.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectObject.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectStatus.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Effect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Envelope.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\CustomForce.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Periodic.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ConstantForce.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Condition.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\RampForce.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Device.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceImageInformationHeader.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceImageInformation.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\EffectList.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceInstance.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\JoystickState.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\MouseState.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceObjectList.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ActionFormat.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ActionCollection.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceProperties.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\FileEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\CalibrationPoint.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\InputRange.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceCaps.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceObjectTypeFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\KeyboardState.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DataFormat.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\BufferedDataCollection.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\BufferedData.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceObjectInstance.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Manager.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ConfigureDevicesParameters.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ColorSet.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceList.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\InputException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DInputHelper.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\DeviceArrival.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\NotAcquiredException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\InputLostException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\ObjectTypeGuid.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\SystemGuid.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\UnsupportedException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\OtherApplicationHasPriorityException.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Microsoft.DirectX.DirectInput\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.DirectX\Microsoft.DirectX.csproj">
+      <Project>{53A53B8E-C9EF-4B7C-AB48-47B45F36BA3E}</Project>
+      <Name>Microsoft.DirectX</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
