@@ -28,7 +28,7 @@ namespace Microsoft.DirectX.Direct3D
 	{
 		public static AdapterListCollection Adapters {
 			get {
-				throw new NotImplementedException ();
+				return new AdapterListCollection();
 			}
 		}
 

@@ -45,6 +45,6 @@ Global
 		{E4DC3E71-F97F-4A01-A641-3513E69DE3C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Microsoft.DirectX.Direct3D\Microsoft.DirectX.Direct3D.csproj
+		StartupItem = Microsoft.DirectX.Direct3DX\Microsoft.DirectX.Direct3DX.csproj
 	EndGlobalSection
 EndGlobal
