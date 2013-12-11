@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B7520FB-FAED-43FE-AC79-0FDF147D7A80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.DirectX.DirectSound</RootNamespace>
+    <AssemblyName>Microsoft.DirectX.DirectSound</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferSize.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferPlayFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferDescriptionFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureEffectsReturnValue.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CooperativeLevel.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsReturnValue.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectStatus.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Frequency.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\LockFlag.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Mode3D.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\OperationMode.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Pan.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\PositionNotifyFlag.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Volume.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\WaveFormatTag.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\SecondaryBuffer.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Buffer.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferStatus.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\WaveFormat.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferCaps.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferDescription.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Device.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Speakers.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Caps.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectDescription.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureDevicesCollection.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\DeviceInformation.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferPositionNotify.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureBuffer.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureBufferCaps.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureBufferDescription.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureEffectDescription.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Capture.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CaptureCaps.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Notify.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\DevicesCollection.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Listener3DSettings.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Buffer3DSettings.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Listener3D.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Listener3DOrientation.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Buffer3D.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\Angles.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\DSoundHelper.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\BufferTooSmallException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\SoundException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\ChorusEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsChorus.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\CompressorEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsCompressor.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\DistortionEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsDistortion.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EchoEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsEcho.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\FlangerEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsFlanger.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\GargleEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsGargle.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\ParamEqEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsParamEq.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\WavesReverbEffect.cs" />
+    <Compile Include="Microsoft.DirectX.DirectSound\EffectsWavesReverb.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Microsoft.DirectX.DirectSound\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.DirectX\Microsoft.DirectX.csproj">
+      <Project>{53A53B8E-C9EF-4B7C-AB48-47B45F36BA3E}</Project>
+      <Name>Microsoft.DirectX</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
