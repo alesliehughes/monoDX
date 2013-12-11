@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27B3E264-4571-4275-BA71-25C17396681A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.DirectX.DirectPlay</RootNamespace>
+    <AssemblyName>Microsoft.DirectX.DirectPlay</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\CancelFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\ConnectFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\DestroyGroupFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\FindHostsFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\GetSendQueueInformationFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\GroupFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\HostFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\InitializeFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\LocalAddressFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\PlayerID.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\SendFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\SyncFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\ApplicationDescriptionEventHandler.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteEventHandler.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteMessage.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\ResultCode.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Microsoft.DirectX.DirectPlay\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.DirectX\Microsoft.DirectX.csproj">
+      <Project>{53A53B8E-C9EF-4B7C-AB48-47B45F36BA3E}</Project>
+      <Name>Microsoft.DirectX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.DirectX.DirectSound\Microsoft.DirectX.DirectSound.csproj">
+      <Project>{9B7520FB-FAED-43FE-AC79-0FDF147D7A80}</Project>
+      <Name>Microsoft.DirectX.DirectSound</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
