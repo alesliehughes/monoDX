@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.DirectX.DirectSou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.DirectX.DirectPlay", "Microsoft.DirectX.DirectPlay\Microsoft.DirectX.DirectPlay.csproj", "{27B3E264-4571-4275-BA71-25C17396681A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Microsoft.DirectX.Direct3D", "Test.Microsoft.DirectX.Direct3D\Test.Microsoft.DirectX.Direct3D.csproj", "{712819FD-E9ED-42E3-8BCA-AC164384167B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Microsoft.DirectX", "Test.Microsoft.DirectX\Test.Microsoft.DirectX.csproj", "{A2D99039-3DA8-4A24-97DD-0C89CB8042B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +35,18 @@ Global
 		{69E5220D-7509-44B5-81E9-A2CA3ED0FACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69E5220D-7509-44B5-81E9-A2CA3ED0FACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69E5220D-7509-44B5-81E9-A2CA3ED0FACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{712819FD-E9ED-42E3-8BCA-AC164384167B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{712819FD-E9ED-42E3-8BCA-AC164384167B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{712819FD-E9ED-42E3-8BCA-AC164384167B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{712819FD-E9ED-42E3-8BCA-AC164384167B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9B7520FB-FAED-43FE-AC79-0FDF147D7A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B7520FB-FAED-43FE-AC79-0FDF147D7A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B7520FB-FAED-43FE-AC79-0FDF147D7A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B7520FB-FAED-43FE-AC79-0FDF147D7A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D99039-3DA8-4A24-97DD-0C89CB8042B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D99039-3DA8-4A24-97DD-0C89CB8042B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D99039-3DA8-4A24-97DD-0C89CB8042B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D99039-3DA8-4A24-97DD-0C89CB8042B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCF3D848-D04D-4884-A375-A5ED981CD989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCF3D848-D04D-4884-A375-A5ED981CD989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF3D848-D04D-4884-A375-A5ED981CD989}.Release|Any CPU.ActiveCfg = Release|Any CPU
