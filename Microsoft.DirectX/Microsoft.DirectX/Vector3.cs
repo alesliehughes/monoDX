@@ -33,7 +33,7 @@ namespace Microsoft.DirectX
 
 		public static Vector3 Empty {
 			get {
-				throw new NotImplementedException ();
+				return new Vector3(0.0f, 0.0f, 0.0f);
 			}
 		}
 
@@ -59,7 +59,9 @@ namespace Microsoft.DirectX
 
 		public Vector3 (float valueX, float valueY, float valueZ)
 		{
-			throw new NotImplementedException ();
+			this.X = valueX;
+			this.Y = valueY;
+			this.Z = valueZ;
 		}
 
 		public override string ToString ()
