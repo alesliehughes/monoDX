@@ -52,7 +52,10 @@ namespace Microsoft.DirectX
 
 		public static Matrix Identity {
 			get {
-				throw new NotImplementedException ();
+				Matrix mat = new Matrix();
+				mat.M11 = mat.M22 = mat.M33 = mat.M44 = 1.0f;
+
+				return mat;
 			}
 		}
 
