@@ -33,7 +33,13 @@ namespace Microsoft.DirectX
 
 		public static Quaternion Identity {
 			get {
-				throw new NotImplementedException ();
+				Quaternion quat = new Quaternion();
+				quat.X = 0.0f;
+				quat.Y = 0.0f;
+				quat.Z = 0.0f;
+				quat.W = 1.0f;
+				
+				return quat;
 			}
 		}
 
