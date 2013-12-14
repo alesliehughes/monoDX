@@ -22,6 +22,8 @@
  */
 using System;
 using NUnit.Framework;
+using Microsoft.DirectX.Direct3D;
+using System.Collections;
 
 namespace Test.Microsoft.DirectX.Direct3D
 {
@@ -29,8 +31,16 @@ namespace Test.Microsoft.DirectX.Direct3D
 	public class TestManager
 	{
 		[Test()]
-		public void TestCase ()
+		public void ManagerAdapters ()
 		{
+			AdapterListCollection list = Manager.Adapters;
+			if (list != null) {
+				IEnumerator e = list.GetEnumerator();
+				Assert.IsNotNull(e);
+				if(e != null)
+				{
+				}
+			}
 		}
 	}
 }
