@@ -37,8 +37,17 @@ namespace Test.Microsoft.DirectX.Direct3D
 			if (list != null) {
 				IEnumerator e = list.GetEnumerator();
 				Assert.IsNotNull(e);
-				if(e != null)
+				while(e.MoveNext())
 				{
+					try
+					{
+						AdapterInformation info = e.Current as AdapterInformation;
+						Assert.IsNotNull(info);
+					}
+					catch
+					{
+						//TODO: Implement e.Current
+					}
 				}
 			}
 		}

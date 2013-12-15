@@ -27,6 +27,8 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class AdapterListCollection : IEnumerable, IEnumerator
 	{
+		internal int currAdapter;
+
 		public AdapterInformation Default {
 			get {
 				throw new NotImplementedException ();
@@ -56,9 +58,15 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 
+		//TODO: Assumes only one Adapter - Should be enough for now.
 		public bool MoveNext ()
 		{
-			throw new NotImplementedException ();
+			if(currAdapter == 0)
+				return false;
+
+			currAdapter++;
+
+			return true;
 		}
 
 		public IEnumerator GetEnumerator ()
@@ -74,6 +82,11 @@ namespace Microsoft.DirectX.Direct3D
 		public override int GetHashCode ()
 		{
 			throw new NotImplementedException ();
+		}
+
+		internal AdapterListCollection ()
+		{
+			currAdapter = -1;
 		}
 	}
 }
