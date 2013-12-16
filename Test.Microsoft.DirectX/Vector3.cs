@@ -48,6 +48,19 @@ namespace Test.Microsoft.DirectX
 			result = Vector3.Dot(lhs, rhs);
 			Assert.AreEqual(12.0f, result);
 		}
+
+		[Test()]
+		public void TestCross ()
+		{
+			Vector3 rhs = new Vector3(3.0f, 3.0f, 3.0f);
+			Vector3 lhs = new Vector3(2.0f, 2.0f, 2.0f);
+			Vector3 result;
+
+			result = Vector3.Cross(lhs, rhs);
+			Assert.AreEqual(0.0f, result.X);
+			Assert.AreEqual(0.0f, result.Y);
+			Assert.AreEqual(0.0f, result.Z);
+		}
 	}
 }
 

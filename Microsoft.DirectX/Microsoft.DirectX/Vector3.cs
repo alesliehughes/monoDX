@@ -129,9 +129,9 @@ namespace Microsoft.DirectX
 			return (left.X * right.X) + (left.Y * right.Y) + (left.Z * right.Z);
 		}
 
-		public static Vector3 Cross (Vector3 left, Vector3 right)
+		public static Vector3 Cross (Vector3 lhs, Vector3 rhs)
 		{
-			throw new NotImplementedException ();
+			return new Vector3( (lhs.Y * rhs.Z) - (lhs.Z * rhs.Y),(lhs.Z * rhs.X) - (lhs.X * rhs.Z), (lhs.X * rhs.Y) - (lhs.Y * rhs.X));
 		}
 
 		public void Add (Vector3 source)
