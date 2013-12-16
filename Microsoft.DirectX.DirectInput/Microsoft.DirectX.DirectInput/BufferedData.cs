@@ -22,7 +22,7 @@
  */
 using System;
 
-#pragma warning disable 660 661
+#pragma warning disable 660, 661
 
 namespace Microsoft.DirectX.DirectInput
 {
