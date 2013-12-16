@@ -119,12 +119,19 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static bool operator == (Sprite left, Sprite right)
 		{
-			throw new NotImplementedException ();
+			if(left == null && right == null)
+				return true;
+			
+			//TODO: Assumes if left and right are not null, they are the same
+			if(left != null && right != null)
+				return true;
+			
+			return false;
 		}
 
 		public static bool operator != (Sprite left, Sprite right)
 		{
-			throw new NotImplementedException ();
+			return !(left == right);
 		}
 
 		public override int GetHashCode ()
