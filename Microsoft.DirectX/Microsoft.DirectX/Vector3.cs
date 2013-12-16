@@ -126,7 +126,7 @@ namespace Microsoft.DirectX
 
 		public static float Dot (Vector3 left, Vector3 right)
 		{
-			throw new NotImplementedException ();
+			return (left.X * right.X) + (left.Y * right.Y) + (left.Z * right.Z);
 		}
 
 		public static Vector3 Cross (Vector3 left, Vector3 right)
