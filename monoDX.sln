@@ -17,12 +17,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Microsoft.DirectX.Dire
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Microsoft.DirectX", "Test.Microsoft.DirectX\Test.Microsoft.DirectX.csproj", "{A2D99039-3DA8-4A24-97DD-0C89CB8042B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Microsoft.DirectX.Direct3DX", "Test.Microsoft.DirectX.Direct3DX\Test.Microsoft.DirectX.Direct3DX.csproj", "{0A14E60C-AB47-4DE6-869A-BC9734924F61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A14E60C-AB47-4DE6-869A-BC9734924F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A14E60C-AB47-4DE6-869A-BC9734924F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A14E60C-AB47-4DE6-869A-BC9734924F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A14E60C-AB47-4DE6-869A-BC9734924F61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27B3E264-4571-4275-BA71-25C17396681A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27B3E264-4571-4275-BA71-25C17396681A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27B3E264-4571-4275-BA71-25C17396681A}.Release|Any CPU.ActiveCfg = Release|Any CPU

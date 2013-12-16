@@ -102,9 +102,9 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 
+		//TODO: Implement.
 		public unsafe Sprite (IntPtr unmanagedObject)
 		{
-			throw new NotImplementedException ();
 		}
 
 		public Sprite (Device device)
