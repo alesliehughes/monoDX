@@ -34,8 +34,8 @@ namespace Test.Microsoft.DirectX
 		{
 			Vector3 v3 = Vector3.Empty;
 			Assert.AreEqual(0.0f, v3.X);
-			Assert.AreEqual(0.0f, v3.X);
-			Assert.AreEqual(0.0f, v3.X);
+			Assert.AreEqual(0.0f, v3.Y);
+			Assert.AreEqual(0.0f, v3.Z);
 		}
 
 		[Test()]
