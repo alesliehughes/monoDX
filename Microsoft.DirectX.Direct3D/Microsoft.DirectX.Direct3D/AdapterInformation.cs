@@ -26,6 +26,8 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class AdapterInformation
 	{
+		private int nAdapter;
+
 		public DisplayModeCollection SupportedDisplayModes {
 			get {
 				throw new NotImplementedException ();
@@ -46,7 +48,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public int Adapter {
 			get {
-				throw new NotImplementedException ();
+				return nAdapter;
 			}
 		}
 
@@ -63,6 +65,11 @@ namespace Microsoft.DirectX.Direct3D
 		public override int GetHashCode ()
 		{
 			throw new NotImplementedException ();
+		}
+
+		internal AdapterInformation (int nAdapterNo)
+		{
+			nAdapter = nAdapterNo;
 		}
 	}
 }
