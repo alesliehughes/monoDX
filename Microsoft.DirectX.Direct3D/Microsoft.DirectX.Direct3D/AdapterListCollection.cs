@@ -50,7 +50,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public object Current {
 			get {
-				throw new NotImplementedException ();
+				return new AdapterInformation(this.currAdapter);
 			}
 		}
 
