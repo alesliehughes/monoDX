@@ -41,9 +41,10 @@ namespace Microsoft.DirectX.Direct3D
 			}
 		}
 
+		//TODO: Returns 1 all the time.
 		public int Count {
 			get {
-				throw new NotImplementedException ();
+				return 1;
 			}
 		}
 
