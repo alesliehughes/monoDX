@@ -37,7 +37,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public AdapterInformation this [int adapter] {
 			get {
-				throw new NotImplementedException ();
+				return new AdapterInformation(adapter);
 			}
 		}
 
