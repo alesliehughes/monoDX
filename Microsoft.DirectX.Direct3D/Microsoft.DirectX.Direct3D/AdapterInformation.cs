@@ -43,7 +43,7 @@ namespace Microsoft.DirectX.Direct3D
 		//TODO: Fill in AdapterDetails structure
 		public AdapterDetails Information {
 			get {
-				return new AdapterDetails ();
+				return new AdapterDetails ("Default Description");
 			}
 		}
 

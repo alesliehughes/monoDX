@@ -26,6 +26,8 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public struct AdapterDetails
 	{
+		private string desc;
+
 		public Guid DeviceIdentifier {
 			get {
 				throw new NotImplementedException ();
@@ -76,7 +78,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public string Description {
 			get {
-				throw new NotImplementedException ();
+				return desc;
 			}
 		}
 
@@ -91,5 +93,9 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 
+		internal AdapterDetails (string description)
+		{
+			this.desc = description;
+		}
 	}
 }
