@@ -40,9 +40,10 @@ namespace Microsoft.DirectX.Direct3D
 			}
 		}
 
+		//TODO: Fill in AdapterDetails structure
 		public AdapterDetails Information {
 			get {
-				throw new NotImplementedException ();
+				return new AdapterDetails ();
 			}
 		}
 
