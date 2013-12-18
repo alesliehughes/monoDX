@@ -61,6 +61,20 @@ namespace Test.Microsoft.DirectX
 			Assert.AreEqual(0.0f, result.Y);
 			Assert.AreEqual(0.0f, result.Z);
 		}
+
+		[Test()]
+		public void TestLength ()
+		{
+			Vector3 v1 = new Vector3(3.0f, 3.0f, 3.0f);
+			Vector3 v2 = new Vector3(2.0f, 2.0f, 2.0f);
+			float result;
+
+			result = v1.Length();
+			Assert.AreEqual(5.19615221f, result);
+
+			result = Vector3.Length(v2);
+			Assert.AreEqual(3.46410155f, result);
+		}
 	}
 }
 

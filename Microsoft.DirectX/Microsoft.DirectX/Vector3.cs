@@ -106,12 +106,12 @@ namespace Microsoft.DirectX
 
 		public float Length ()
 		{
-			throw new NotImplementedException ();
+			return (float)Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
 		}
 
 		public static float Length (Vector3 source)
 		{
-			throw new NotImplementedException ();
+			return (float)Math.Sqrt((source.X * source.X) + (source.Y * source.Y) + (source.Z * source.Z));
 		}
 
 		public float LengthSq ()
