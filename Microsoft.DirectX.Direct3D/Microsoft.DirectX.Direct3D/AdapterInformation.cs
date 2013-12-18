@@ -65,7 +65,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public override int GetHashCode ()
 		{
-			throw new NotImplementedException ();
+			return nAdapter.GetHashCode();
 		}
 
 		internal AdapterInformation (int nAdapterNo)

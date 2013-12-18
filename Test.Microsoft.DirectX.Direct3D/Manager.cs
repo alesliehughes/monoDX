@@ -66,6 +66,18 @@ namespace Test.Microsoft.DirectX.Direct3D
 				}
 			}
 		}
+
+		[Test()]
+		public void ManagerAdaptersForeach ()
+		{
+			AdapterListCollection list = Manager.Adapters;
+			if (list != null) {
+				foreach(AdapterInformation info in list)
+				{
+					Assert.IsNotNull(info);
+				}
+			}
+		}
 	}
 }
 

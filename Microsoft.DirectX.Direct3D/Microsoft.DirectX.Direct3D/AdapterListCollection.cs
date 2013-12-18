@@ -82,7 +82,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public override int GetHashCode ()
 		{
-			throw new NotImplementedException ();
+			return base.GetHashCode();
 		}
 
 		internal AdapterListCollection ()
