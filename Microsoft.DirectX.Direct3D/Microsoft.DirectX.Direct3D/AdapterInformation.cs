@@ -30,7 +30,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public DisplayModeCollection SupportedDisplayModes {
 			get {
-				throw new NotImplementedException ();
+				return new DisplayModeCollection();
 			}
 		}
 
