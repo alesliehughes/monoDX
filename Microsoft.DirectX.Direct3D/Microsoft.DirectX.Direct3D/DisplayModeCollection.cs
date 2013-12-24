@@ -58,7 +58,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public IEnumerator GetEnumerator ()
 		{
-			throw new NotImplementedException ();
+			return this;
 		}
 
 		public override bool Equals (object compare)
