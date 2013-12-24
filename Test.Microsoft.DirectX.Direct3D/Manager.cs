@@ -35,17 +35,13 @@ namespace Test.Microsoft.DirectX.Direct3D
 		{
 			AdapterListCollection list = Manager.Adapters;
 			if (list != null) {
-				IEnumerator e = list.GetEnumerator();
-				Assert.IsNotNull(e);
-				while(e.MoveNext())
-				{
-					try
-					{
+				IEnumerator e = list.GetEnumerator ();
+				Assert.IsNotNull (e);
+				while (e.MoveNext()) {
+					try {
 						AdapterInformation info = e.Current as AdapterInformation;
-						Assert.IsNotNull(info);
-					}
-					catch
-					{
+						Assert.IsNotNull (info);
+					} catch {
 						//TODO: Implement e.Current
 					}
 				}
@@ -57,12 +53,11 @@ namespace Test.Microsoft.DirectX.Direct3D
 		{
 			AdapterListCollection list = Manager.Adapters;
 			if (list != null) {
-				Assert.AreNotEqual(list.Count, 0);
+				Assert.AreNotEqual (list.Count, 0);
 
-				for(int i=0; i < list.Count; i++)
-				{
-					AdapterInformation info = list[i];
-					Assert.IsNotNull(info);
+				for (int i=0; i < list.Count; i++) {
+					AdapterInformation info = list [i];
+					Assert.IsNotNull (info);
 				}
 			}
 		}
@@ -72,9 +67,22 @@ namespace Test.Microsoft.DirectX.Direct3D
 		{
 			AdapterListCollection list = Manager.Adapters;
 			if (list != null) {
-				foreach(AdapterInformation info in list)
-				{
-					Assert.IsNotNull(info);
+				foreach (AdapterInformation info in list) {
+					Assert.IsNotNull (info);
+				}
+			}
+		}
+		
+		[Test()]
+		public void ManagerAdaptersDisplayMode ()
+		{
+			AdapterListCollection list = Manager.Adapters;
+			if (list != null) {
+				foreach (AdapterInformation info in list) {
+					Assert.IsNotNull (info);
+					foreach (DisplayMode displayMode in info.SupportedDisplayModes) {
+						Assert.IsNotNull (displayMode);
+					}
 				}
 			}
 		}

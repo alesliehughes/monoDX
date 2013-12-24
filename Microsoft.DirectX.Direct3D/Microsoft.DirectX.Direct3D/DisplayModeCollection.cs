@@ -28,6 +28,8 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class DisplayModeCollection : IEnumerable, IEnumerator
 	{
+		int nCurrentMode;
+
 		public DisplayModeCollection this [Format f] {
 			get {
 				throw new NotImplementedException ();
@@ -40,9 +42,10 @@ namespace Microsoft.DirectX.Direct3D
 			}
 		}
 
+		//TODO: Assumes only one mode.
 		public object Current {
 			get {
-				throw new NotImplementedException ();
+				return new DisplayMode ();
 			}
 		}
 
@@ -51,9 +54,15 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 
+		//TODO: Assumes only one mode.
 		public bool MoveNext ()
 		{
-			throw new NotImplementedException ();
+			if (nCurrentMode == 0)
+				return false;
+
+			nCurrentMode++;
+			
+			return true;
 		}
 
 		public IEnumerator GetEnumerator ()
@@ -69,6 +78,11 @@ namespace Microsoft.DirectX.Direct3D
 		public override int GetHashCode ()
 		{
 			throw new NotImplementedException ();
+		}
+		
+		internal DisplayModeCollection ()
+		{
+			nCurrentMode = -1;
 		}
 	}
 }
