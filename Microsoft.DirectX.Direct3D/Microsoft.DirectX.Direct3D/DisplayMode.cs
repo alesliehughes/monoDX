@@ -26,39 +26,44 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public struct DisplayMode
 	{
+		private int height;
+		private int width;
+		private int refresh;
+		private Format format;
+
 		public int Height {
 			get {
-				throw new NotImplementedException ();
+				return this.height;
 			}
 			set {
-				throw new NotImplementedException ();
+				this.height = value;
 			}
 		}
 
 		public int Width {
 			get {
-				throw new NotImplementedException ();
+				return this.width;
 			}
 			set {
-				throw new NotImplementedException ();
+				this.width = value;
 			}
 		}
 
 		public int RefreshRate {
 			get {
-				throw new NotImplementedException ();
+				return this.refresh;
 			}
 			set {
-				throw new NotImplementedException ();
+				this.refresh = value;
 			}
 		}
 
 		public Format Format {
 			get {
-				throw new NotImplementedException ();
+				return this.format;
 			}
 			set {
-				throw new NotImplementedException ();
+				this.format = value;
 			}
 		}
 
