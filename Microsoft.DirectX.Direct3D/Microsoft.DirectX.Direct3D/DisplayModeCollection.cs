@@ -45,7 +45,10 @@ namespace Microsoft.DirectX.Direct3D
 		//TODO: Assumes only one mode.
 		public object Current {
 			get {
-				return new DisplayMode ();
+				DisplayMode mode = new DisplayMode ();
+				mode.Width = 1024;
+				mode.Height = 768;
+				return mode;
 			}
 		}
 
