@@ -58,6 +58,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectCompleteMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\NetworkPacket.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AbortedException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\AddressingException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
