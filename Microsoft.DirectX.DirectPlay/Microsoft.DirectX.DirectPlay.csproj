@@ -60,6 +60,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\AbortedException.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AddressingException.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AlreadyClosingException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\AddPlayerToGroupMessage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
