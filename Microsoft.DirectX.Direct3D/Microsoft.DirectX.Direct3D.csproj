@@ -181,6 +181,7 @@
     <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirect3DVertexBuffer9.cs" />
     <Compile Include="Microsoft.DirectX.Direct3D\VertexBufferDescription.cs" />
     <Compile Include="Microsoft.DirectX.Direct3D\Wrap.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\QueryType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
