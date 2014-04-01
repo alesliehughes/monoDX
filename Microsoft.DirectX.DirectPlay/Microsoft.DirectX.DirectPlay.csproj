@@ -52,6 +52,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ResultCode.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\DirectPlayException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
