@@ -183,6 +183,7 @@
     <Compile Include="Microsoft.DirectX.Direct3D\Wrap.cs" />
     <Compile Include="Microsoft.DirectX.Direct3D\QueryType.cs" />
     <Compile Include="Microsoft.DirectX.Direct3D\RenderTargetsMax.cs" />
+    <Compile Include="Microsoft.DirectX.Direct3D\TextureCoordinateIndex.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
