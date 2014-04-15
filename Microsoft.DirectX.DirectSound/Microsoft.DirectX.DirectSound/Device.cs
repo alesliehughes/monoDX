@@ -121,7 +121,7 @@ namespace Microsoft.DirectX.DirectSound
 
 		public void SetCooperativeLevel (Control owner, CooperativeLevel level)
 		{
-			throw new NotImplementedException ();
+
 		}
 
 		public void Compact ()
