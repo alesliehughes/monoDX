@@ -100,7 +100,7 @@ namespace Microsoft.DirectX.DirectSound
 
 		public Device ()
 		{
-			throw new NotImplementedException ();
+
 		}
 
 		public void Dispose ()
