@@ -21,62 +21,71 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using Microsoft.VisualC;
 
 namespace Microsoft.DirectX.DirectSound
 {
+	[MiscellaneousBits(1)]
 	public struct WaveFormat
 	{
+		private short mBitPerSample;
+		private short mBlockAlign;
+		private int mAvgPerSec;
+		private int mSamplePrSec;
+		private short mChannels;
+		private short mFormatTag;
+
 		public short BitsPerSample {
 			get {
-				throw new NotImplementedException ();
+				return mBitPerSample;
 			}
 			set {
-				throw new NotImplementedException ();
+				mBitPerSample = value;
 			}
 		}
 
 		public short BlockAlign {
 			get {
-				throw new NotImplementedException ();
+				return mBlockAlign;
 			}
 			set {
-				throw new NotImplementedException ();
+				mBlockAlign = value;
 			}
 		}
 
 		public int AverageBytesPerSecond {
 			get {
-				throw new NotImplementedException ();
+				return mAvgPerSec;
 			}
 			set {
-				throw new NotImplementedException ();
+				mAvgPerSec = value;
 			}
 		}
 
 		public int SamplesPerSecond {
 			get {
-				throw new NotImplementedException ();
+				return mSamplePrSec;
 			}
 			set {
-				throw new NotImplementedException ();
+				mSamplePrSec = value;
 			}
 		}
 
 		public short Channels {
 			get {
-				throw new NotImplementedException ();
+				return mChannels;
 			}
 			set {
-				throw new NotImplementedException ();
+				mChannels = value;
 			}
 		}
 
 		public WaveFormatTag FormatTag {
 			get {
-				throw new NotImplementedException ();
+				return (WaveFormatTag)mFormatTag;
 			}
 			set {
-				throw new NotImplementedException ();
+				this.mFormatTag = (short)value;
 			}
 		}
 
