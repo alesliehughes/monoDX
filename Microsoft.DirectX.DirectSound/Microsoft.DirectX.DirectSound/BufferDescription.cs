@@ -239,7 +239,7 @@ namespace Microsoft.DirectX.DirectSound
 
 		public BufferDescription ()
 		{
-			throw new NotImplementedException ();
+
 		}
 	}
 }
