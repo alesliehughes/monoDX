@@ -101,6 +101,7 @@
     <Compile Include="Microsoft.DirectX.DirectSound\EffectsWavesReverb.cs" />
     <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\IDirectSound8.cs" />
     <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\WAVEFORMATEX.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\DSBUFFERDESC.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
