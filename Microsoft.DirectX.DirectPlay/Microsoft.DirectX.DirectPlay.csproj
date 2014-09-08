@@ -63,6 +63,9 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\AlreadyClosingException.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AddPlayerToGroupMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\AvailableFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\Handle.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\InitializeFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\SessionStatusFlags.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
