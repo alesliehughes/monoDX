@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.VisualC" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -66,6 +67,12 @@
     <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\Handle.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\InitializeFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\SessionStatusFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\ConnectMessage.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\ConnectionSettings.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\ApplicationDescription.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\Address.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\ConnectionSettingsFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\SessionFlags.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
