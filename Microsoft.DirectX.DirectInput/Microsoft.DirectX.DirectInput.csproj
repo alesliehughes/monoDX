@@ -176,6 +176,7 @@
     <Compile Include="Microsoft.DirectX.DirectInput\SystemGuid.cs" />
     <Compile Include="Microsoft.DirectX.DirectInput\UnsupportedException.cs" />
     <Compile Include="Microsoft.DirectX.DirectInput\OtherApplicationHasPriorityException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectInput\Action.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
