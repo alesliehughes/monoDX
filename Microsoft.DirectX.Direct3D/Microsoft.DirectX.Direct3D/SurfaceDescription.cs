@@ -27,93 +27,101 @@ namespace Microsoft.DirectX.Direct3D
 	[Serializable]
 	public struct SurfaceDescription
 	{
+		internal int mHeight;
+		internal int mWidth;
+		internal int mMultiSampleQuality;
+		internal MultiSampleType mMultiSampleType;
+		internal Pool mMemoryPool;
+		internal Usage mUsage;
+		internal ResourceType mType;
+		internal Format mFormat;
 
 		public int Height
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mHeight;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mHeight = value;
 			}
 		}
 		public int Width
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mWidth;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mWidth = value;
 			}
 		}
 		public int MultiSampleQuality
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mMultiSampleQuality;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mMultiSampleQuality = value;
 			}
 		}
 		public MultiSampleType MultiSampleType
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mMultiSampleType;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mMultiSampleType = value;
 			}
 		}
 		public Pool MemoryPool
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mMemoryPool;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mMemoryPool = value;
 			}
 		}
 		public Usage Usage
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mUsage;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mUsage = value;
 			}
 		}
 		public ResourceType Type
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mType;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mType = value;
 			}
 		}
 		public Format Format
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return mFormat;
 			}
 			set
 			{
-				throw new NotImplementedException ();
+				mFormat = value;
 			}
 		}
 		public override string ToString()
