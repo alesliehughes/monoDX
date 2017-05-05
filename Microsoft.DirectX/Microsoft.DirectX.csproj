@@ -37,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Microsoft.DirectX\ColorValue.cs" />
     <Compile Include="Microsoft.DirectX\DirectXException.cs" />
     <Compile Include="Microsoft.DirectX\Matrix.cs" />
     <Compile Include="Microsoft.DirectX\Quaternion.cs" />
