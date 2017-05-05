@@ -29,60 +29,77 @@ namespace Microsoft.DirectX.Direct3D
 	[MiscellaneousBits(1)]
 	public struct ColorValue
 	{
+		float mRed;
+		float mGreen;
+		float mBlue;
+		float mAlpha;
+
 		public float Alpha {
 			get {
-				throw new NotImplementedException ();
+				return mAlpha;
 			}
 			set {
-				throw new NotImplementedException ();
+				mAlpha = value;
 			}
 		}
 
 		public float Green {
 			get {
-				throw new NotImplementedException ();
+				return mGreen;
 			}
 			set {
-				throw new NotImplementedException ();
+				mGreen = value;
 			}
 		}
 
 		public float Blue {
 			get {
-				throw new NotImplementedException ();
+				return mBlue;
 			}
 			set {
-				throw new NotImplementedException ();
+				mBlue = value;
 			}
 		}
 
 		public float Red {
 			get {
-				throw new NotImplementedException ();
+				return mRed;
 			}
 			set {
-				throw new NotImplementedException ();
+				mRed = value;
 			}
 		}
 
 		public ColorValue (int r, int g, int b)
 		{
-			throw new NotImplementedException ();
+			mRed = r;
+			mGreen = g;
+			mBlue = b;
+			mAlpha = 0.0f;
 		}
 
 		public ColorValue (int r, int g, int b, int a)
 		{
-			throw new NotImplementedException ();
+			mRed = r;
+			mGreen = g;
+			mBlue = b;
+			mAlpha = a;
 		}
 
 		public ColorValue (float r, float g, float b)
 		{
-			throw new NotImplementedException ();
+			mRed = r;
+			mGreen = g;
+			mBlue = b;
+			mAlpha = 0.0f;
 		}
 
 		public ColorValue (float r, float g, float b, float a)
 		{
-			throw new NotImplementedException ();
+			mRed = r;
+			mGreen = g;
+			mBlue = b;
+			mAlpha = a;
 		}
 
 		public int ToArgb ()
