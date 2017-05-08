@@ -58,7 +58,8 @@ namespace Microsoft.DirectX
 
 		public Vector2 (float valueX, float valueY)
 		{
-			throw new NotImplementedException ();
+			X = valueX;
+			Y = valueY;
 		}
 
 		public override string ToString ()
