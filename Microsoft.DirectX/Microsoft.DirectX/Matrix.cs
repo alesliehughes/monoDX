@@ -21,6 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX
 {
@@ -43,6 +44,9 @@ namespace Microsoft.DirectX
 		public float M42;
 		public float M43;
 		public float M44;
+
+		[DllImport("d3dx9_43.dll")]
+		private unsafe static extern Matrix* D3DXMatrixInverse(Matrix *res, float *det, Matrix *src);
 		
 		public float Determinant {
 			get {
@@ -140,9 +144,11 @@ namespace Microsoft.DirectX
 			throw new NotImplementedException ();
 		}
 
-		public static Matrix Invert (Matrix source)
+		public unsafe static Matrix Invert (Matrix source)
 		{
-			throw new NotImplementedException ();
+			Matrix result = new Matrix();
+			D3DXMatrixInverse(&result, null, &source);
+			return result;
 		}
 
 		public static Matrix Invert (ref float determinant, Matrix source)
