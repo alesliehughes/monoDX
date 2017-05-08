@@ -21,6 +21,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
+
 namespace Microsoft.DirectX
 {
 	[Serializable]
@@ -42,6 +44,9 @@ namespace Microsoft.DirectX
 				return quat;
 			}
 		}
+
+		[DllImport("d3dx9_43.dll")]
+		private unsafe static extern Quaternion* D3DXQuaternionRotationMatrix(Quaternion *res, Matrix *src);
 
 		public static Quaternion Zero {
 			get {
@@ -139,9 +144,11 @@ namespace Microsoft.DirectX
 			throw new NotImplementedException ();
 		}
 
-		public static Quaternion RotationMatrix (Matrix m)
+		public unsafe static Quaternion RotationMatrix (Matrix m)
 		{
-			throw new NotImplementedException ();
+			Quaternion result = new Quaternion();
+			D3DXQuaternionRotationMatrix(&result, &m);
+			return result;
 		}
 
 		public static Quaternion RotationAxis (Vector3 v, float angle)
