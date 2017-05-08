@@ -21,6 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX
 {
@@ -30,6 +31,9 @@ namespace Microsoft.DirectX
 		public float X;
 		public float Y;
 		public float Z;
+
+		[DllImport("d3dx9_43.dll")]
+		private unsafe static extern Vector3* D3DXVec3TransformNormal(Vector3 *res, Vector3 *src, Matrix *mat);
 
 		public static Vector3 Empty {
 			get {
@@ -249,9 +253,11 @@ namespace Microsoft.DirectX
 			throw new NotImplementedException ();
 		}
 
-		public static Vector3 TransformNormal (Vector3 source, Matrix sourceMatrix)
+		public unsafe static Vector3 TransformNormal (Vector3 source, Matrix sourceMatrix)
 		{
-			throw new NotImplementedException ();
+			Vector3 result =  new Vector3();
+			D3DXVec3TransformNormal(&result, &source, &sourceMatrix);
+			return result;
 		}
 
 		public void Project (object viewport, Matrix projection, Matrix view, Matrix world)
