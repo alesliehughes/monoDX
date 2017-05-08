@@ -32,7 +32,7 @@ namespace Microsoft.DirectX
 
 		public static Vector2 Empty {
 			get {
-				throw new NotImplementedException ();
+				return new Vector2 (0.0f, 0.0f);
 			}
 		}
 		
