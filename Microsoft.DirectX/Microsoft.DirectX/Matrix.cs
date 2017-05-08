@@ -47,6 +47,9 @@ namespace Microsoft.DirectX
 
 		[DllImport("d3dx9_43.dll")]
 		private unsafe static extern Matrix* D3DXMatrixInverse(Matrix *res, float *det, Matrix *src);
+
+		[DllImport("d3dx9_43.dll")]
+		private unsafe static extern Matrix* D3DXMatrixLookAtLH(Matrix *res, Vector3 *eye, Vector3 *at, Vector3 *up);
 		
 		public float Determinant {
 			get {
@@ -216,9 +219,11 @@ namespace Microsoft.DirectX
 			throw new NotImplementedException ();
 		}
 
-		public static Matrix LookAtLH (Vector3 cameraPosition, Vector3 cameraTarget, Vector3 cameraUpVector)
+		public unsafe static Matrix LookAtLH (Vector3 cameraPosition, Vector3 cameraTarget, Vector3 cameraUpVector)
 		{
-			throw new NotImplementedException ();
+			Matrix result = new Matrix();
+			D3DXMatrixLookAtLH(&result, &cameraPosition, &cameraTarget, &cameraUpVector);
+			return result;
 		}
 
 		public static Matrix PerspectiveRH (float width, float height, float znearPlane, float zfarPlane)
