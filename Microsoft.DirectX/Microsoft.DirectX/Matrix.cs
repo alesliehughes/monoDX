@@ -50,6 +50,9 @@ namespace Microsoft.DirectX
 
 		[DllImport("d3dx9_43.dll")]
 		private unsafe static extern Matrix* D3DXMatrixLookAtLH(Matrix *res, Vector3 *eye, Vector3 *at, Vector3 *up);
+
+		[DllImport("d3dx9_43.dll")]
+		private unsafe static extern Matrix* D3DXMatrixPerspectiveFovLH(Matrix *res, float fieldOfViewY, float aspectRatio, float znearPlane, float zfarPlane);
 		
 		public float Determinant {
 			get {
@@ -241,9 +244,11 @@ namespace Microsoft.DirectX
 			throw new NotImplementedException ();
 		}
 
-		public static Matrix PerspectiveFovLH (float fieldOfViewY, float aspectRatio, float znearPlane, float zfarPlane)
+		public unsafe static Matrix PerspectiveFovLH (float fieldOfViewY, float aspectRatio, float znearPlane, float zfarPlane)
 		{
-			throw new NotImplementedException ();
+			Matrix result = new Matrix();
+			D3DXMatrixPerspectiveFovLH(&result, fieldOfViewY, aspectRatio, znearPlane, zfarPlane);
+			return result;
 		}
 
 		public static Matrix PerspectiveOffCenterRH (float left, float right, float bottom, float top, float znearPlane, float zfarPlane)
