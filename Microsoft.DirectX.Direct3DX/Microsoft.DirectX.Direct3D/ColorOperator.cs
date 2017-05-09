@@ -29,7 +29,7 @@ namespace Microsoft.DirectX.Direct3D
 	{
 		static ColorOperator ()
 		{
-			throw new NotImplementedException ();
+
 		}
 
 		public static ColorValue Negative (ColorValue c)
