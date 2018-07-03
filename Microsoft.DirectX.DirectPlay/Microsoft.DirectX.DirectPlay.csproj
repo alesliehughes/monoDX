@@ -73,6 +73,8 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\Address.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay.Lobby\ConnectionSettingsFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SessionFlags.cs" />
+    <Compile Include="PrivateImplementationDetails\IDirectPlay8Address.cs" />
+    <Compile Include="PrivateImplementationDetails\GUID.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
