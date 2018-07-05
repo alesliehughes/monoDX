@@ -1,0 +1,69 @@
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2013 Alistair Leslie-Hughes
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+import "unknwn.idl";
+import "objidl.idl";
+import "oaidl.idl";
+import "wtypes.idl";
+
+[
+	uuid(83783300-4063-4888-9db3-82830a7feb31)
+]
+library PrivateImplementationDetails
+{
+
+	[
+		uuid(83783300-4063-4c8a-9db3-82830a7feb31),
+		local,
+		object
+	]
+	interface IDirectPlay8Address : IUnknown
+	{
+		HRESULT BuildFromURLW([in] WCHAR* pwszSourceURL);
+		HRESULT BuildFromURLA([in] char* pszSourceURL);
+		HRESULT Duplicate([out] IDirectPlay8Address** ppdpaNewAddress);
+		HRESULT SetEqual([in] IDirectPlay8Address* pdpaAddress);
+		HRESULT IsEqual([in] IDirectPlay8Address* pdpaAddress);
+		HRESULT Clear();
+		HRESULT GetURLW([out] WCHAR* pwszURL, [out] DWORD *pdwNumChars);
+		HRESULT GetURLA([out] char* pszURL, [out] DWORD *pdwNumChars);
+		HRESULT GetSP([out] GUID* pguidSP);
+		HRESULT GetUserData([out] LPVOID pvUserData, [out] DWORD *pdwBufferSize);
+		HRESULT SetSP([in] const GUID* pguidSP);
+		HRESULT SetUserData([in] const void* pvUserData, [in] DWORD dwDataSize);
+		HRESULT GetNumComponents([out] DWORD *pdwNumComponents);
+		HRESULT GetComponentByName([in] const WCHAR* pwszName, [out] LPVOID pvBuffer, [out] DWORD *pdwBufferSize, [out] DWORD *pdwDataType);
+		HRESULT GetComponentByIndex([in] DWORD dwComponentID, [out] WCHAR* pwszName, [out] DWORD *pdwNameLen, [out] void* pvBuffer, [out] DWORD *pdwBufferSize, DWORD *pdwDataType);
+		HRESULT AddComponent([in] const WCHAR* pwszName, [in] const void* lpvData, [in] DWORD dwDataSize, [in] DWORD dwDataType);
+		HRESULT GetDevice([out] GUID* pDevGuid);
+		HRESULT SetDevice(const GUID* devGuid);
+		HRESULT BuildFromDirectPlay4Address([in] LPVOID pvAddress, [in] DWORD dwDataSize);
+	};
+
+	[
+		uuid(934a9523-a3ca-4bc5-ada0-d6d95d979421)
+	]
+	coclass DirectPlay8Address
+	{
+		interface IDirectPlay8Address;
+	};
+}

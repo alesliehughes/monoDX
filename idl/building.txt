@@ -1,0 +1,3 @@
+Use IDL file to create a TLB
+Use TLB to create a Interop Assembly
+Extract interfaces from Interop Assembly
