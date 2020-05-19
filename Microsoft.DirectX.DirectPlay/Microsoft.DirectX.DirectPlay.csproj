@@ -55,6 +55,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\ServiceProviderInformation.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServiceProviderInformationFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SyncFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\TerminateSessionMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ApplicationDescriptionEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteEventArgs.cs" />
