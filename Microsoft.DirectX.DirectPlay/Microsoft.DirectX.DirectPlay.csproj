@@ -51,6 +51,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\SendFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServiceProviderCaps.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServiceProviderCapsFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\ServiceProviderInformation.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServiceProviderInformationFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SyncFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ApplicationDescriptionEventHandler.cs" />
