@@ -48,6 +48,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\InitializeFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\LocalAddressFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerID.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServerInformationEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServerInformationEventHandler.cs" />
