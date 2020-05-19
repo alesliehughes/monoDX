@@ -80,6 +80,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\AsyncOperationCompleteMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ResultCode.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DirectPlayException.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\Client.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectCompleteEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectCompleteEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectCompleteMessage.cs" />
