@@ -38,6 +38,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\CancelFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\Caps.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyGroupFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostsFlags.cs" />
