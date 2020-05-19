@@ -50,6 +50,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\LocalAddressFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerID.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveMessage.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteMessage.cs" />
