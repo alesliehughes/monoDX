@@ -76,6 +76,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventHandler.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\RemovePlayerFromGroupMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ResultCode.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteEventHandler.cs" />
