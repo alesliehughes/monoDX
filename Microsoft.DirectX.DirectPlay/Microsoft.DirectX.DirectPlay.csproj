@@ -106,6 +106,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\PeerInformationEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerAddedToGroupEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerRemovedFromGroupEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\PlayerRemovedFromGroupEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventHandler.cs" />
