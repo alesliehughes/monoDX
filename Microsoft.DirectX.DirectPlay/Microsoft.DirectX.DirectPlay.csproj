@@ -58,6 +58,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectCompleteMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectionInformation.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyGroupFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\DestroyGroupMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DirectPlayException.cs" />
