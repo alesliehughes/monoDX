@@ -59,6 +59,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\ConnectionInformation.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyGroupFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DirectPlayException.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostQueryEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostQueryEventHandler.cs" />
