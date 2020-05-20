@@ -82,6 +82,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\GroupMembersList.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedMessage.cs" />
