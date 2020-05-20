@@ -68,6 +68,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformation.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\InitializeFlags.cs" />
