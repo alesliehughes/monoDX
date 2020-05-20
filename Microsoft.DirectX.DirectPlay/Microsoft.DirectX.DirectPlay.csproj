@@ -93,6 +93,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\LocalAddressFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\NetworkPacket.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PeerInformationMessage.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\PlayerCreatedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerDestroyedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerDestroyedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerID.cs" />
