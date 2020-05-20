@@ -86,6 +86,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicateConnectEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicateConnectMessage.cs" />
