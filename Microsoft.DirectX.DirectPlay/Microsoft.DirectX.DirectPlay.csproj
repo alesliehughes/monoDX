@@ -89,6 +89,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicateConnectEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\IndicateConnectEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicateConnectMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\InitializeFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\LocalAddressFlags.cs" />
