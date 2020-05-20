@@ -119,6 +119,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendCompleteMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\SendFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\Server.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServerInformationEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServerInformationEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ServerInformationMessage.cs" />
