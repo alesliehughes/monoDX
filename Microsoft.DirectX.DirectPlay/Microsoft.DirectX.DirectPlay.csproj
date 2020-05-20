@@ -71,6 +71,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\HostMigratedMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\IndicatedConnectAbortedMessage.cs" />
