@@ -61,6 +61,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\DestroyPlayerFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\DirectPlayException.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostQueryEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\FindHostQueryEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostResponseEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostResponseEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostsFlags.cs" />
