@@ -72,6 +72,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostsResponseMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GetSendQueueInformationFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupCreatedEventArgs.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\GroupCreatedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupDestroyedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupDestroyedEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupFlags.cs" />
