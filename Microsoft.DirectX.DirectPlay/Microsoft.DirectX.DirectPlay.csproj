@@ -95,6 +95,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\InitializeFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\LocalAddressFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\NetworkPacket.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\Peer.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PeerInformationMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerAddedToGroupEventHandler.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerCreatedEventArgs.cs" />
