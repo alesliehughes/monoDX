@@ -73,6 +73,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\NetworkPacket.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerID.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\PlayerInformation.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\PlayerRemovedFromGroupEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\ReceiveEventHandler.cs" />
