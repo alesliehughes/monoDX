@@ -70,6 +70,7 @@
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostsQueryMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\FindHostsResponseMessage.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GetSendQueueInformationFlags.cs" />
+    <Compile Include="Microsoft.DirectX.DirectPlay\GroupDestroyedEventArgs.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupFlags.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformation.cs" />
     <Compile Include="Microsoft.DirectX.DirectPlay\GroupInformationEventArgs.cs" />
