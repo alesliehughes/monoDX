@@ -21,42 +21,39 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using Microsoft.DirectX.DirectPlay;
-<<<<<<< HEAD
-using Microsoft.DirectX.PrivateImplementationDetails;
-using Microsoft.VisualC;
 using System;
-using System.Globalization;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-=======
-using System;
->>>>>>> 398e26f5f51556c88e7f17d23de269732502d0fa
 
 namespace Microsoft.DirectX.DirectPlay
 {
-	public struct GroupInformation
+	public struct FindHostsQueryMessage
 	{
-		public string Name
+		public int MaxResponseDataSize
 		{
 			get
-			{
-				throw new NotImplementedException ();
-			}
-			set
 			{
 				throw new NotImplementedException ();
 			}
 		}
 
-		public GroupFlags GroupFlags
+		public NetworkPacket ReceivedData
 		{
 			get
 			{
 				throw new NotImplementedException ();
 			}
-			set
+		}
+
+		public Address AddressDevice
+		{
+			get
+			{
+				throw new NotImplementedException ();
+			}
+		}
+
+		public Address AddressSender
+		{
+			get
 			{
 				throw new NotImplementedException ();
 			}
@@ -67,12 +64,7 @@ namespace Microsoft.DirectX.DirectPlay
 			throw new NotImplementedException ();
 		}
 
-		public byte[] GetData()
-		{
-			throw new NotImplementedException ();
-		}
-
-		public void SetData(byte[] value)
+		public void SetResponseData(NetworkPacket data)
 		{
 			throw new NotImplementedException ();
 		}

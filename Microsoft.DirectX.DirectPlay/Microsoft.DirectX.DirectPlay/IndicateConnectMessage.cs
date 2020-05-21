@@ -21,36 +21,37 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using Microsoft.DirectX.DirectPlay;
-<<<<<<< HEAD
-using Microsoft.DirectX.PrivateImplementationDetails;
-using Microsoft.VisualC;
 using System;
-using System.Globalization;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-=======
-using System;
->>>>>>> 398e26f5f51556c88e7f17d23de269732502d0fa
 
 namespace Microsoft.DirectX.DirectPlay
 {
-	public struct GroupInformation
+	public struct IndicateConnectMessage
 	{
-		public string Name
+		public  NetworkPacket UserConnectData
 		{
 			get
 			{
 				throw new NotImplementedException ();
 			}
-			set
+		}
+
+		public Address AddressDevice
+		{
+			get
 			{
 				throw new NotImplementedException ();
 			}
 		}
 
-		public GroupFlags GroupFlags
+		public Address AddressPlayer
+		{
+			get
+			{
+				throw new NotImplementedException ();
+			}
+		}
+
+		public object PlayerContext
 		{
 			get
 			{
@@ -67,12 +68,7 @@ namespace Microsoft.DirectX.DirectPlay
 			throw new NotImplementedException ();
 		}
 
-		public byte[] GetData()
-		{
-			throw new NotImplementedException ();
-		}
-
-		public void SetData(byte[] value)
+		public void SetReplyData(NetworkPacket data)
 		{
 			throw new NotImplementedException ();
 		}

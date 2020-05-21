@@ -21,22 +21,12 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using Microsoft.DirectX.DirectPlay;
-<<<<<<< HEAD
-using Microsoft.DirectX.PrivateImplementationDetails;
-using Microsoft.VisualC;
 using System;
-using System.Globalization;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-=======
-using System;
->>>>>>> 398e26f5f51556c88e7f17d23de269732502d0fa
+using System.Collections;
 
 namespace Microsoft.DirectX.DirectPlay
 {
-	public struct GroupInformation
+	public sealed class PlayersGroupsEnumerator : IEnumerator, IEnumerable
 	{
 		public string Name
 		{
@@ -44,38 +34,55 @@ namespace Microsoft.DirectX.DirectPlay
 			{
 				throw new NotImplementedException ();
 			}
-			set
-			{
-				throw new NotImplementedException ();
-			}
 		}
 
-		public GroupFlags GroupFlags
+		public int this[int index]
 		{
 			get
 			{
 				throw new NotImplementedException ();
 			}
-			set
+		}
+
+		public int Count
+		{
+			get
 			{
 				throw new NotImplementedException ();
 			}
 		}
 
-		public override string ToString()
+		public object Current
+		{
+			get
+			{
+				throw new NotImplementedException ();
+			}
+		}
+
+		public void Reset()
 		{
 			throw new NotImplementedException ();
 		}
 
-		public byte[] GetData()
+		public bool MoveNext()
 		{
 			throw new NotImplementedException ();
 		}
 
-		public void SetData(byte[] value)
+		public IEnumerator GetEnumerator()
 		{
 			throw new NotImplementedException ();
 		}
 
+		public int[] GetData()
+		{
+			throw new NotImplementedException ();
+		}
+
+		public byte[] GetUserData()
+		{
+			throw new NotImplementedException ();
+		}
 	}
 }
