@@ -61,6 +61,12 @@ void CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT inde
     IDirect3D9_EnumAdapterModes(iface, adapter, D3DFMT_X8R8G8B8, index, mode);
 }
 
+void CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAPS9 *caps)
+{
+    WINE_TRACE("iface %p, adapter %u, type %u, caps %p\n", iface, adapter, type, caps);
+    IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
+}
+
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 {
     WINE_TRACE("instance %p, reason %x, res %p\n", instance, reason, res);

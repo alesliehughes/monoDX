@@ -44,6 +44,9 @@ namespace Microsoft.DirectX.Direct3D
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [Out] out DisplayMode.D3DDISPLAYMODE mode);
 
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
+
 		internal static int GetAdapterDisplayModeCount(int adapter)
 		{
 			return (int)d3d9_GetAdapterDisplayModeCount(_d3d9, (uint)adapter);
@@ -152,7 +155,8 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static Caps GetDeviceCaps (int adapter, DeviceType deviceType)
 		{
-			throw new NotImplementedException ();
+			d3d9_GetDeviceCaps(_d3d9, (uint)adapter, (uint)deviceType, out var caps);
+			return new Caps(caps);
 		}
 
 		public static IntPtr GetAdapterMonitor (int adapter)
