@@ -20,9 +20,28 @@
  */
 
 #include <windows.h>
+#include "d3d9.h"
+
 #include "wine/debug.h"
 
 WINE_DEFAULT_DEBUG_CHANNEL(monodx);
+
+static HMODULE d3d9;
+
+static IDirect3D9 *(WINAPI *pDirect3DCreate9)(UINT version);
+
+void CDECL d3d9_Create(IDirect3D9 **iface)
+{
+    WINE_TRACE("iface %p\n", iface);
+    *iface = pDirect3DCreate9(D3D_SDK_VERSION);
+    WINE_TRACE("created %p\n", *iface);
+}
+
+void CDECL d3d9_Release(IDirect3D9 *iface)
+{
+    WINE_TRACE("iface %p\n", iface);
+    IDirect3D9_Release(iface);
+}
 
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 {
@@ -31,8 +50,11 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
     switch (reason)
     {
     case DLL_PROCESS_ATTACH:
+        if (!(d3d9 = LoadLibraryA("d3d9"))) return FALSE;
+        if (!(pDirect3DCreate9 = (void*)GetProcAddress(d3d9, "Direct3DCreate9"))) return FALSE;
         break;
     case DLL_PROCESS_DETACH:
+        FreeLibrary(d3d9);
         break;
     }
     return TRUE;

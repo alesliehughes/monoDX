@@ -21,11 +21,20 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX.Direct3D
 {
-	public sealed class Manager : MarshalByRefObject
+	public sealed class Manager : MarshalByRefObject, IDisposable
 	{
+		internal static IntPtr _d3d9;
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_Create([Out] out IntPtr d3d9);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_Release([In] IntPtr d3d9);
+
 		public static AdapterListCollection Adapters {
 			get {
 				return new AdapterListCollection();
@@ -34,6 +43,13 @@ namespace Microsoft.DirectX.Direct3D
 
 		static Manager ()
 		{
+			d3d9_Create(out _d3d9);
+			if (_d3d9 == null) throw new NullReferenceException();
+		}
+
+		public void Dispose()
+		{
+			d3d9_Release(_d3d9);
 		}
 
 		public override bool Equals (object compare)
