@@ -43,6 +43,12 @@ void CDECL d3d9_Release(IDirect3D9 *iface)
     IDirect3D9_Release(iface);
 }
 
+UINT CDECL d3d9_GetAdapterCount(IDirect3D9 *iface)
+{
+    WINE_TRACE("iface %p\n", iface);
+    return IDirect3D9_GetAdapterCount(iface);
+}
+
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 {
     WINE_TRACE("instance %p, reason %x, res %p\n", instance, reason, res);

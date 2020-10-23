@@ -35,10 +35,11 @@ namespace Microsoft.DirectX.Direct3D
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void d3d9_Release([In] IntPtr d3d9);
 
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern uint d3d9_GetAdapterCount([In] IntPtr d3d9);
+
 		public static AdapterListCollection Adapters {
-			get {
-				return new AdapterListCollection();
-			}
+			get => new AdapterListCollection((int)d3d9_GetAdapterCount(_d3d9));
 		}
 
 		static Manager ()
