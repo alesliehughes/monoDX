@@ -49,6 +49,18 @@ UINT CDECL d3d9_GetAdapterCount(IDirect3D9 *iface)
     return IDirect3D9_GetAdapterCount(iface);
 }
 
+UINT CDECL d3d9_GetAdapterDisplayModeCount(IDirect3D9 *iface, UINT adapter)
+{
+    WINE_TRACE("iface %p, adapter %u\n", iface, adapter);
+    return IDirect3D9_GetAdapterModeCount(iface, adapter, D3DFMT_X8R8G8B8);
+}
+
+void CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT index, D3DDISPLAYMODE *mode)
+{
+    WINE_TRACE("iface %p, adapter %u, index %u, mode %p\n", iface, adapter, index, mode);
+    IDirect3D9_EnumAdapterModes(iface, adapter, D3DFMT_X8R8G8B8, index, mode);
+}
+
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 {
     WINE_TRACE("instance %p, reason %x, res %p\n", instance, reason, res);

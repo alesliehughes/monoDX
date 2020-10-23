@@ -21,50 +21,45 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX.Direct3D
 {
 	public struct DisplayMode
 	{
-		private int height;
-		private int width;
-		private int refresh;
-		private Format format;
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct D3DDISPLAYMODE {
+    			public uint Width;
+    			public uint Height;
+    			public uint RefreshRate;
+    			public uint Format;
+		}
+
+		private D3DDISPLAYMODE _mode;
+
+		internal DisplayMode(D3DDISPLAYMODE mode)
+		{
+			_mode = mode;
+		}
 
 		public int Height {
-			get {
-				return this.height;
-			}
-			set {
-				this.height = value;
-			}
+			get => (int)_mode.Height;
+			set => _mode.Height = (uint)value;
 		}
 
 		public int Width {
-			get {
-				return this.width;
-			}
-			set {
-				this.width = value;
-			}
+			get => (int)_mode.Width;
+			set => _mode.Width = (uint)value;
 		}
 
 		public int RefreshRate {
-			get {
-				return this.refresh;
-			}
-			set {
-				this.refresh = value;
-			}
+			get => (int)_mode.RefreshRate;
+			set => _mode.RefreshRate = (uint)value;
 		}
 
 		public Format Format {
-			get {
-				return this.format;
-			}
-			set {
-				this.format = value;
-			}
+			get => (Format)_mode.Format;
+			set => _mode.Format = (uint)value;
 		}
 
 		public override string ToString ()

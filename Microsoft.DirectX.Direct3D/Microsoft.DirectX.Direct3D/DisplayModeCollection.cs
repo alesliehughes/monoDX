@@ -28,7 +28,9 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class DisplayModeCollection : IEnumerable, IEnumerator
 	{
-		int nCurrentMode;
+		private int _adapter;
+		private int _count;
+		private int _index;
 
 		public DisplayModeCollection this [Format f] {
 			get {
@@ -37,19 +39,11 @@ namespace Microsoft.DirectX.Direct3D
 		}
 
 		public int Count {
-			get {
-				throw new NotImplementedException ();
-			}
+			get => _count;
 		}
 
-		//TODO: Assumes only one mode.
 		public object Current {
-			get {
-				DisplayMode mode = new DisplayMode ();
-				mode.Width = 1024;
-				mode.Height = 768;
-				return mode;
-			}
+			get => Manager.GetAdapterDisplayMode(_adapter, _index);
 		}
 
 		public void Reset ()
@@ -57,14 +51,10 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 
-		//TODO: Assumes only one mode.
 		public bool MoveNext ()
 		{
-			if (nCurrentMode == 0)
-				return false;
-
-			nCurrentMode++;
-			
+			if (_index >= _count) return false;
+			_index++;
 			return true;
 		}
 
@@ -83,9 +73,11 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 		
-		internal DisplayModeCollection ()
+		internal DisplayModeCollection (int adapter, int count)
 		{
-			nCurrentMode = -1;
+			_adapter = adapter;
+			_count = count;
+			_index = -1;
 		}
 	}
 }
