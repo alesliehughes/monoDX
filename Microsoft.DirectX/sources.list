@@ -1,0 +1,11 @@
+AssemblyInfo.cs
+Microsoft.DirectX/DirectXException.cs
+Microsoft.DirectX/GraphicsBuffer.cs
+Microsoft.DirectX/GraphicsStream.cs
+Microsoft.DirectX/Matrix.cs
+Microsoft.DirectX/Plane.cs
+Microsoft.DirectX/Quaternion.cs
+Microsoft.DirectX/UnsafeNativeMethods.cs
+Microsoft.DirectX/Vector2.cs
+Microsoft.DirectX/Vector3.cs
+Microsoft.DirectX/Vector4.cs

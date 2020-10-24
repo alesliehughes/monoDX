@@ -26,12 +26,10 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class AdapterInformation
 	{
-		private int nAdapter;
+		private int _index;
 
 		public DisplayModeCollection SupportedDisplayModes {
-			get {
-				return new DisplayModeCollection();
-			}
+			get => new DisplayModeCollection(_index, Manager.GetAdapterDisplayModeCount(_index));
 		}
 
 		public DisplayMode CurrentDisplayMode {
@@ -48,9 +46,7 @@ namespace Microsoft.DirectX.Direct3D
 		}
 
 		public int Adapter {
-			get {
-				return nAdapter;
-			}
+			get => _index;
 		}
 
 		public AdapterDetails GetWhqlInformation ()
@@ -65,12 +61,12 @@ namespace Microsoft.DirectX.Direct3D
 
 		public override int GetHashCode ()
 		{
-			return nAdapter.GetHashCode();
+			return _index.GetHashCode();
 		}
 
-		internal AdapterInformation (int nAdapterNo)
+		internal AdapterInformation (int index)
 		{
-			nAdapter = nAdapterNo;
+			_index = index;
 		}
 	}
 }
