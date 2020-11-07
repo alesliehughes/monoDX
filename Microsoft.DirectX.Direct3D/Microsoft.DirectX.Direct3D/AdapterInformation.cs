@@ -34,7 +34,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public DisplayMode CurrentDisplayMode {
 			get {
-				throw new NotImplementedException ();
+				return Manager.GetAdapterCurrentDisplayMode (_index);
 			}
 		}
 
