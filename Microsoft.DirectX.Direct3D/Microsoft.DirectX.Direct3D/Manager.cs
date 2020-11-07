@@ -39,6 +39,9 @@ namespace Microsoft.DirectX.Direct3D
 		internal static extern uint d3d9_GetAdapterCount([In] IntPtr d3d9);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_GetAdapterCurrentDisplayMode([In] IntPtr d3d9, [In] uint adapter, [Out] out DisplayMode.D3DDISPLAYMODE mode);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern uint d3d9_GetAdapterDisplayModeCount([In] IntPtr d3d9, [In] uint adapter);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
@@ -50,6 +53,13 @@ namespace Microsoft.DirectX.Direct3D
 		internal static int GetAdapterDisplayModeCount(int adapter)
 		{
 			return (int)d3d9_GetAdapterDisplayModeCount(_d3d9, (uint)adapter);
+		}
+
+		internal static DisplayMode GetAdapterCurrentDisplayMode(int adapter)
+		{
+			Marshal.ThrowExceptionForHR(
+				d3d9_GetAdapterCurrentDisplayMode(_d3d9, (uint)adapter, out var mode));
+			return new DisplayMode(mode);
 		}
 
 		internal static DisplayMode GetAdapterDisplayMode(int adapter, int index)

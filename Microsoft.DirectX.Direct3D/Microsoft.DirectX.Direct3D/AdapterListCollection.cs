@@ -31,9 +31,7 @@ namespace Microsoft.DirectX.Direct3D
 		internal int _index;
 
 		public AdapterInformation Default {
-			get {
-				throw new NotImplementedException ();
-			}
+			get => new AdapterInformation(0);
 		}
 
 		public AdapterInformation this [int index] {
