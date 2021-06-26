@@ -21,11 +21,112 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX.Direct3D
 {
 	public struct Caps
 	{
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct D3DVSHADERCAPS2_0
+		{
+  			public uint Caps;
+  			public int DynamicFlowControlDepth;
+  			public int NumTemps;
+  			public int StaticFlowControlDepth;
+		}
+
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct D3DPSHADERCAPS2_0
+		{
+  			public uint Caps;
+  			public int DynamicFlowControlDepth;
+  			public int NumTemps;
+  			public int StaticFlowControlDepth;
+  			public int NumInstructionSlots;
+		}
+
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct D3DCAPS9
+		{
+			public uint DeviceType;
+			public uint AdapterOrdinal;
+			public uint Caps;
+			public uint Caps2;
+			public uint Caps3;
+			public uint PresentationIntervals;
+			public uint CursorCaps;
+			public uint DevCaps;
+			public uint PrimitiveMiscCaps;
+			public uint RasterCaps;
+			public uint ZCmpCaps;
+			public uint SrcBlendCaps;
+			public uint DestBlendCaps;
+			public uint AlphaCmpCaps;
+			public uint ShadeCaps;
+			public uint TextureCaps;
+			public uint TextureFilterCaps;
+			public uint CubeTextureFilterCaps;
+			public uint VolumeTextureFilterCaps;
+			public uint TextureAddressCaps;
+			public uint VolumeTextureAddressCaps;
+			public uint LineCaps;
+			public uint MaxTextureWidth;
+			public uint MaxTextureHeight;
+			public uint MaxVolumeExtent;
+			public uint MaxTextureRepeat;
+			public uint MaxTextureAspectRatio;
+			public uint MaxAnisotropy;
+			public float MaxVertexW;
+			public float GuardBandLeft;
+			public float GuardBandTop;
+			public float GuardBandRight;
+			public float GuardBandBottom;
+			public float ExtentsAdjust;
+			public uint StencilCaps;
+			public uint FVFCaps;
+			public uint TextureOpCaps;
+			public uint MaxTextureBlendStages;
+			public uint MaxSimultaneousTextures;
+			public uint VertexProcessingCaps;
+			public uint MaxActiveLights;
+			public uint MaxUserClipPlanes;
+			public uint MaxVertexBlendMatrices;
+			public uint MaxVertexBlendMatrixIndex;
+			public float MaxPointSize;
+			public uint MaxPrimitiveCount;
+			public uint MaxVertexIndex;
+			public uint MaxStreams;
+			public uint MaxStreamStride;
+			public uint VertexShaderVersion;
+			public uint MaxVertexShaderConst;
+			public uint PixelShaderVersion;
+			public float PixelShader1xMaxValue;
+			public uint DevCaps2;
+			public float MaxNpatchTessellationLevel;
+			public uint Reserved5;
+			public uint MasterAdapterOrdinal;  
+			public uint AdapterOrdinalInGroup; 
+			public uint NumberOfAdaptersInGroup;
+			public uint DeclTypes;             
+			public uint NumSimultaneousRTs;    
+			public uint StretchRectFilterCaps; 
+			public D3DVSHADERCAPS2_0 VS20Caps;
+			public D3DPSHADERCAPS2_0 PS20Caps;
+			public uint VertexTextureFilterCaps;
+			public uint MaxVShaderInstructionsExecuted;
+			public uint MaxPShaderInstructionsExecuted;
+			public uint MaxVertexShader30InstructionSlots;
+			public uint MaxPixelShader30InstructionSlots;
+		}
+
+		private D3DCAPS9 _caps;
+
+		internal Caps(D3DCAPS9 caps)
+		{
+			_caps = caps;
+		}
+
 		public PixelShaderCaps PixelShaderCaps {
 			get {
 				throw new NotImplementedException ();
@@ -40,13 +141,13 @@ namespace Microsoft.DirectX.Direct3D
 
 		public int MaxPixelShader30InstructionSlots {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxPixelShader30InstructionSlots;
 			}
 		}
 
 		public int MaxVertexShader30InstructionSlots {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxVertexShader30InstructionSlots;
 			}
 		}
 
@@ -142,38 +243,38 @@ namespace Microsoft.DirectX.Direct3D
 
 		public int NumberOfAdaptersInGroup {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.NumberOfAdaptersInGroup;
 			}
 		}
 
 		public int AdapterOrdinalInGroup {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.AdapterOrdinalInGroup;
 			}
 		}
 
 		public int MasterAdapterOrdinal {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MasterAdapterOrdinal;
 			}
 		}
 
 		public int MaxVertexShaderConst {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxVertexShaderConst;
 			}
 		}
 
 		public int MaxSimultaneousTextures {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxSimultaneousTextures;
 				;
 			}
 		}
 
 		public int MaxTextureBlendStages {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxTextureBlendStages;
 			}
 		}
 
@@ -191,139 +292,139 @@ namespace Microsoft.DirectX.Direct3D
 
 		public int NumberSimultaneousRts {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.NumSimultaneousRTs;
 			}
 		}
 
 		public float PixelShader1xMaxValue {
 			get {
-				throw new NotImplementedException ();
+				return _caps.PixelShader1xMaxValue;
 			}
 		}
 
 		public int MaxStreamStride {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxStreamStride;
 			}
 		}
 
 		public int MaxStreams {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxStreams;
 			}
 		}
 
 		public int MaxVertexIndex {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxVertexIndex;
 			}
 		}
 
 		public int MaxPrimitiveCount {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxPrimitiveCount;
 			}
 		}
 
 		public float MaxPointSize {
 			get {
-				throw new NotImplementedException ();
+				return _caps.MaxPointSize;
 			}
 		}
 
 		public int MaxVertexBlendMatrixIndex {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxVertexBlendMatrixIndex;
 			}
 		}
 
 		public int MaxVertexBlendMatrices {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxVertexBlendMatrices;
 			}
 		}
 
 		public int MaxUserClipPlanes {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxUserClipPlanes;
 			}
 		}
 
 		public int MaxActiveLights {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxActiveLights;
 			}
 		}
 
 		public float ExtentsAdjust {
 			get {
-				throw new NotImplementedException ();
+				return _caps.ExtentsAdjust;
 			}
 		}
 
 		public float GuardBandBottom {
 			get {
-				throw new NotImplementedException ();
+				return _caps.GuardBandBottom;
 			}
 		}
 
 		public float GuardBandRight {
 			get {
-				throw new NotImplementedException ();
+				return _caps.GuardBandRight;
 			}
 		}
 
 		public float GuardBandTop {
 			get {
-				throw new NotImplementedException ();
+				return _caps.GuardBandTop;
 			}
 		}
 
 		public float GuardBandLeft {
 			get {
-				throw new NotImplementedException ();
+				return _caps.GuardBandLeft;
 			}
 		}
 
 		public float MaxVertexW {
 			get {
-				throw new NotImplementedException ();
+				return _caps.MaxVertexW;
 			}
 		}
 
 		public int MaxAnisotropy {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxAnisotropy;
 			}
 		}
 
 		public int MaxTextureAspectRatio {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxTextureAspectRatio;
 			}
 		}
 
 		public int MaxTextureRepeat {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxTextureRepeat;
 			}
 		}
 
 		public int MaxVolumeExtent {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxVolumeExtent;
 			}
 		}
 
 		public int MaxTextureHeight {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxTextureHeight;
 			}
 		}
 
 		public int MaxTextureWidth {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.MaxTextureWidth;
 			}
 		}
 
@@ -389,7 +490,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public int AdapterOrdinal {
 			get {
-				throw new NotImplementedException ();
+				return (int)_caps.AdapterOrdinal;
 			}
 		}
 
@@ -401,7 +502,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public float MaxNPatchTessellationLevel {
 			get {
-				throw new NotImplementedException ();
+				return _caps.MaxNpatchTessellationLevel;
 			}
 		}
 

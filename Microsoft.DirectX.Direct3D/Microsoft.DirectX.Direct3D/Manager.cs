@@ -21,19 +21,66 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX.Direct3D
 {
-	public sealed class Manager : MarshalByRefObject
+	public sealed class Manager : MarshalByRefObject, IDisposable
 	{
+		internal static IntPtr _d3d9;
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_Create([Out] out IntPtr d3d9);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_Release([In] IntPtr d3d9);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern uint d3d9_GetAdapterCount([In] IntPtr d3d9);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_GetAdapterCurrentDisplayMode([In] IntPtr d3d9, [In] uint adapter, [Out] out DisplayMode.D3DDISPLAYMODE mode);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern uint d3d9_GetAdapterDisplayModeCount([In] IntPtr d3d9, [In] uint adapter);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [Out] out DisplayMode.D3DDISPLAYMODE mode);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
+
+		internal static int GetAdapterDisplayModeCount(int adapter)
+		{
+			return (int)d3d9_GetAdapterDisplayModeCount(_d3d9, (uint)adapter);
+		}
+
+		internal static DisplayMode GetAdapterCurrentDisplayMode(int adapter)
+		{
+			Marshal.ThrowExceptionForHR(
+				d3d9_GetAdapterCurrentDisplayMode(_d3d9, (uint)adapter, out var mode));
+			return new DisplayMode(mode);
+		}
+
+		internal static DisplayMode GetAdapterDisplayMode(int adapter, int index)
+		{
+			d3d9_GetAdapterDisplayMode(_d3d9, (uint)adapter, (uint)index, out var mode);
+			return new DisplayMode(mode);
+		}
+
 		public static AdapterListCollection Adapters {
-			get {
-				return new AdapterListCollection();
-			}
+			get => new AdapterListCollection((int)d3d9_GetAdapterCount(_d3d9));
 		}
 
 		static Manager ()
 		{
+			d3d9_Create(out _d3d9);
+			if (_d3d9 == null) throw new NullReferenceException();
+		}
+
+		public void Dispose()
+		{
+			d3d9_Release(_d3d9);
 		}
 
 		public override bool Equals (object compare)
@@ -118,7 +165,8 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static Caps GetDeviceCaps (int adapter, DeviceType deviceType)
 		{
-			throw new NotImplementedException ();
+			d3d9_GetDeviceCaps(_d3d9, (uint)adapter, (uint)deviceType, out var caps);
+			return new Caps(caps);
 		}
 
 		public static IntPtr GetAdapterMonitor (int adapter)

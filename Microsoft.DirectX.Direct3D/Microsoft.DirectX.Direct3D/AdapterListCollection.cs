@@ -27,31 +27,23 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class AdapterListCollection : IEnumerable, IEnumerator
 	{
-		internal int currAdapter;
+		internal int _count;
+		internal int _index;
 
 		public AdapterInformation Default {
-			get {
-				throw new NotImplementedException ();
-			}
+			get => new AdapterInformation(0);
 		}
 
-		public AdapterInformation this [int adapter] {
-			get {
-				return new AdapterInformation(adapter);
-			}
+		public AdapterInformation this [int index] {
+			get => new AdapterInformation(index);
 		}
 
-		//TODO: Returns 1 all the time.
 		public int Count {
-			get {
-				return 1;
-			}
+			get => _count;
 		}
 
 		public object Current {
-			get {
-				return new AdapterInformation(this.currAdapter);
-			}
+			get => new AdapterInformation(_index);
 		}
 
 		public void Reset ()
@@ -59,14 +51,10 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 
-		//TODO: Assumes only one Adapter - Should be enough for now.
 		public bool MoveNext ()
 		{
-			if(currAdapter == 0)
-				return false;
-
-			currAdapter++;
-
+			if (_index >= _count) return false;
+			_index++;
 			return true;
 		}
 
@@ -85,9 +73,10 @@ namespace Microsoft.DirectX.Direct3D
 			return base.GetHashCode();
 		}
 
-		internal AdapterListCollection ()
+		internal AdapterListCollection (int count)
 		{
-			currAdapter = -1;
+			_count = count;
+			_index = -1;
 		}
 	}
 }
