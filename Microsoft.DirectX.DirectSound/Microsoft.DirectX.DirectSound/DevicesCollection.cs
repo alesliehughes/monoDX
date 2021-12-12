@@ -22,42 +22,101 @@
  */
 using System;
 using System.Collections;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX.DirectSound
 {
 	public sealed class DevicesCollection : IEnumerable, IEnumerator
 	{
+		ArrayList m_devices;
+		int m_index;
+
 		public DeviceInformation this [int index] {
 			get {
-				throw new NotImplementedException ();
+				return (DeviceInformation)m_devices[index];
 			}
 		}
 
 		public int Count {
 			get {
-				throw new NotImplementedException ();
+				if (m_devices != null)
+				{
+					return m_devices.Count;
+				}
+
+				return -1;
 			}
 		}
 
 		public object Current {
 			get {
-				throw new NotImplementedException ();
+				if (m_devices != null || m_devices.Count == 0)
+				{
+					return null;
+				}
+
+				if (m_index >= 0)
+					return m_devices[m_index];
+
+				return null;
 			}
+		}
+
+		[UnmanagedFunctionPointerAttribute(CallingConvention.StdCall)]
+		[return: MarshalAs(UnmanagedType.I4)]
+		delegate bool ds_enum_cb(UIntPtr guid, [MarshalAs(UnmanagedType.LPWStr)] string desc, [MarshalAs(UnmanagedType.LPWStr)] string module, IntPtr context);
+
+		[DllImport("dsound.dll", CallingConvention=CallingConvention.StdCall)]
+		extern static int DirectSoundEnumerateW([MarshalAs(UnmanagedType.FunctionPtr)] ds_enum_cb func , IntPtr context);
+
+		private bool my_enum(UIntPtr guid, string desc, string module, IntPtr context)
+		{
+			DeviceInformation info = new DeviceInformation();
+			Guid local = new Guid();
+
+			if(guid != null)
+				return true;
+
+			info.m_modulename = module;
+			info.m_description = desc;
+
+			if(guid != null)
+			{
+				local = Guid.NewGuid(); // FIXME("Convert UIntPtr to GUID");
+			}
+			info.m_driver = local;
+
+			m_devices.Add(info);
+
+			return true;
 		}
 
 		public DevicesCollection ()
 		{
-			throw new NotImplementedException ();
+			System.IntPtr va = (IntPtr)0;
+
+			m_index = -1;
+
+			ds_enum_cb del = this.my_enum;
+
+			m_devices = new ArrayList();
+
+			DirectSoundEnumerateW(del, va);
 		}
 
 		public void Reset ()
 		{
-			throw new NotImplementedException ();
+			m_index = -1;
 		}
 
 		public bool MoveNext ()
 		{
-			throw new NotImplementedException ();
+			if (m_devices == null || m_index+1 > m_devices.Count - 1)
+				return false;
+
+			m_index++;
+
+			return true;
 		}
 
 		public IEnumerator GetEnumerator ()
