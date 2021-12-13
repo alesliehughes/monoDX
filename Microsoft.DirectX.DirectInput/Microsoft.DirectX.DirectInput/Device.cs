@@ -106,13 +106,24 @@ namespace Microsoft.DirectX.DirectInput
 
 		public static bool operator ==(Device left, Device right)
 		{
-			throw new NotImplementedException ();
+			if ((Object)left == null)
+			{
+				if ((Object)right == null)
+					return true;
+			}
+			else if ((Object)right != null)
+			{
+				return true;
+			}
+
+			return false;
 		}
 
 		public static bool operator !=(Device left, Device right)
 		{
-			throw new NotImplementedException ();
+			return ( (Object)left != (Object)right) ? true : false;
 		}
+
 		public override int GetHashCode()
 		{
 			throw new NotImplementedException ();
