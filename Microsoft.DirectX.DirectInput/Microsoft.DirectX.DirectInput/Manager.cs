@@ -35,7 +35,11 @@ namespace Microsoft.DirectX.DirectInput
 
 		static Manager ()
 		{
-			throw new NotImplementedException ();
+			new Manager();
+		}
+
+		internal Manager ()
+		{
 		}
 
 		public static DeviceList GetDevices (ActionFormat actionFormat, EnumDevicesBySemanticsFlags flags)
