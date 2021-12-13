@@ -26,21 +26,25 @@ namespace Microsoft.DirectX.DirectSound
 {
 	public struct DeviceInformation
 	{
+		internal string m_modulename;
+		internal string m_description;
+		internal Guid m_driver;
+
 		public string ModuleName {
 			get {
-				throw new NotImplementedException ();
+				return m_modulename;
 			}
 		}
 
 		public string Description {
 			get {
-				throw new NotImplementedException ();
+				return m_description;
 			}
 		}
 
 		public Guid DriverGuid {
 			get {
-				throw new NotImplementedException ();
+				return m_driver;
 			}
 		}
 
