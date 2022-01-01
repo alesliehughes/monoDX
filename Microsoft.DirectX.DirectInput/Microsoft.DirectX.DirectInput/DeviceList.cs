@@ -21,37 +21,60 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 using System.Collections;
 
 namespace Microsoft.DirectX.DirectInput
 {
 	public sealed class DeviceList : IEnumerable, IEnumerator
 	{
+		private ArrayList m_devices;
+		private int m_index;
+
+		internal DeviceList()
+		{
+			m_devices = new ArrayList();
+			m_index = -1;
+		}
+
+		internal void Add(object obj)
+		{
+			m_devices.Add(obj);
+		}
+
 		public int Count {
 			get {
-				throw new NotImplementedException ();
+				return m_devices.Count;
 			}
 		}
 
 		public object Current {
 			get {
-				throw new NotImplementedException ();
+				if (m_devices.Count == 0)
+					return null;
+
+				return m_devices[m_index];
 			}
 		}
 
 		public void Reset ()
 		{
-			throw new NotImplementedException ();
+			m_index = -1;
 		}
-		
+
+		[return: MarshalAs(UnmanagedType.U1)]
 		public bool MoveNext ()
 		{
-			throw new NotImplementedException ();
+			if (m_devices.Count == 0 || m_index == m_devices.Count - 1)
+				return false;
+
+			m_index++;
+			return true;
 		}
 
 		public IEnumerator GetEnumerator ()
 		{
-			throw new NotImplementedException ();
+			return this;
 		}
 	}
 }
