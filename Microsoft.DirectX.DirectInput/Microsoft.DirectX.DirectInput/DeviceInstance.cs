@@ -26,57 +26,67 @@ namespace Microsoft.DirectX.DirectInput
 {
 	public struct DeviceInstance
 	{
+		internal short m_Usage;
+		internal short m_UsagePage;
+		internal Guid m_FFDriverGuid;
+		internal string m_ProductName;
+		internal string m_InstanceName;
+		internal DeviceType m_DeviceType;
+		internal int m_DeviceSubType;
+		internal Guid m_ProductGuid;
+		internal Guid m_InstanceGuid;
+
 		public short Usage {
 			get {
-				throw new NotImplementedException ();
+				return m_Usage;
 			}
 		}
 
 		public short UsagePage {
 			get {
-				throw new NotImplementedException ();
+				return m_UsagePage;
 			}
 		}
 
 		public Guid FFDriverGuid {
 			get {
-				throw new NotImplementedException ();
+				return m_FFDriverGuid;
 			}
 		}
 
 		public string ProductName {
 			get {
-				throw new NotImplementedException ();
+				return m_ProductName;
 			}
 		}
 
 		public string InstanceName {
 			get {
-				throw new NotImplementedException ();
+				return m_InstanceName;
 			}
 		}
 
 		public int DeviceSubType {
 			get {
-				throw new NotImplementedException ();
+				return m_DeviceSubType;
 			}
 		}
 
 		public DeviceType DeviceType {
 			get {
-				throw new NotImplementedException ();
+				return m_DeviceType;
 			}
 		}
 
 		public Guid ProductGuid {
 			get {
-				throw new NotImplementedException ();
+				return m_ProductGuid;
 			}
 		}
 
 		public Guid InstanceGuid {
 			get {
-				throw new NotImplementedException ();
+				return m_InstanceGuid;
 			}
 		}
 
