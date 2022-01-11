@@ -140,3 +140,4 @@ Microsoft.DirectX.DirectInput/TimeStamp.cs
 Microsoft.DirectX.DirectInput/UnsupportedException.cs
 Microsoft.DirectX.DirectInput/Voice.cs
 Microsoft.DirectX.PrivateImplementationDetails/DICOLORSET.cs
+Microsoft.DirectX.PrivateImplementationDetails/GUID.cs

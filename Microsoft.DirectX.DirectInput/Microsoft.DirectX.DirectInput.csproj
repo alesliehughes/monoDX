@@ -178,6 +178,7 @@
     <Compile Include="Microsoft.DirectX.DirectInput\OtherApplicationHasPriorityException.cs" />
     <Compile Include="Microsoft.DirectX.DirectInput\Action.cs" />
     <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\DICOLORSET.cs" />
+    <Compile Include="Microsoft.DirectX.PrivateImplementationDetails\GUID.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
