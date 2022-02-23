@@ -29,7 +29,7 @@ namespace Microsoft.DirectX.Direct3D
 		private int _index;
 
 		public DisplayModeCollection SupportedDisplayModes {
-			get => new DisplayModeCollection(_index, Manager.GetAdapterDisplayModeCount(_index));
+			get => new DisplayModeCollection(_index, Format.X8R8G8B8);
 		}
 
 		public DisplayMode CurrentDisplayMode {
