@@ -34,7 +34,7 @@ namespace Microsoft.DirectX.Direct3D
 		private Format _format;
 
 		public DisplayModeCollection this [Format f] {
-			get => new DisplayModeCollection(_adapter, Manager.GetAdapterDisplayModeCount(_adapter, f), f);
+			get => new DisplayModeCollection(_adapter, f);
 		}
 
 		public int Count {
@@ -72,10 +72,10 @@ namespace Microsoft.DirectX.Direct3D
 			throw new NotImplementedException ();
 		}
 		
-		internal DisplayModeCollection (int adapter, int count, Format format)
+		internal DisplayModeCollection (int adapter, Format format)
 		{
 			_adapter = adapter;
-			_count = count;
+			_count = Manager.GetAdapterDisplayModeCount(adapter, format);
 			_index = -1;
 			_format = format;
 		}
