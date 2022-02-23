@@ -19,16 +19,25 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#define COBJMACROS
+
 #include <windows.h>
 #include "d3d9.h"
+#include "dinput.h"
 
 #include "wine/debug.h"
 
 WINE_DEFAULT_DEBUG_CHANNEL(monodx);
 
+static HMODULE hmonodx;
+
 static HMODULE d3d9;
 
 static IDirect3D9 *(WINAPI *pDirect3DCreate9)(UINT version);
+
+static HMODULE dinput;
+
+static HRESULT (WINAPI *pDirectInput8Create)(HINSTANCE,DWORD,REFIID,void**,IUnknown*);
 
 HMODULE load_library_static(const char* name, HMODULE* static_var)
 {
@@ -101,14 +110,43 @@ void CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAP
     IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
 }
 
+HRESULT CDECL dinput_Create(IDirectInput8 **iface)
+{
+    HRESULT hr;
+    WINE_TRACE("iface %p\n", iface);
+    *iface = NULL;
+    if (!pDirectInput8Create)
+    {
+        HMODULE module = load_library_static("dinput8", &dinput);
+        if (!module)
+            return E_FAIL;
+        pDirectInput8Create = (void*)GetProcAddress(module, "DirectInput8Create");
+        if (!pDirectInput8Create)
+            return E_FAIL;
+    }
+    hr = pDirectInput8Create(hmonodx, DIRECTINPUT_VERSION, &IID_IDirectInput8, (void**)iface, NULL);
+    WINE_TRACE("created %p\n", *iface);
+    return hr;
+}
+
+void CDECL dinput_Release(IDirectInput8 *iface)
+{
+    WINE_TRACE("iface %p\n", iface);
+    IDirectInput8_Release(iface);
+}
+
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 {
     WINE_TRACE("instance %p, reason %x, res %p\n", instance, reason, res);
 
     switch (reason)
     {
+    case DLL_PROCESS_ATTACH:
+        hmonodx = instance;
+        break;
     case DLL_PROCESS_DETACH:
         FreeLibrary(d3d9);
+        FreeLibrary(dinput);
         break;
     }
     return TRUE;

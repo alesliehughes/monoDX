@@ -21,12 +21,21 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Microsoft.DirectX.DirectInput
 {
 	public class Manager : MarshalByRefObject
 	{
+		internal static IntPtr _dinput;
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_Create([Out] out IntPtr dinput);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void dinput_Release(IntPtr dinput);
+
 		public static DeviceList Devices {
 			get {
 				throw new NotImplementedException ();
@@ -35,6 +44,7 @@ namespace Microsoft.DirectX.DirectInput
 
 		static Manager ()
 		{
+			Marshal.ThrowExceptionForHR(dinput_Create(out _dinput));
 			new Manager();
 		}
 
