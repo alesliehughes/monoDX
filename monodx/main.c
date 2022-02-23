@@ -135,6 +135,67 @@ void CDECL dinput_Release(IDirectInput8 *iface)
     IDirectInput8_Release(iface);
 }
 
+struct dinput_enumstate
+{
+    DIDEVICEINSTANCE *result;
+    DWORD count;
+    DWORD allocated;
+    HRESULT hr;
+};
+
+BOOL WINAPI dinput_EnumDevicesCallback(LPCDIDEVICEINSTANCE lpddi, LPVOID pvRef)
+{
+    struct dinput_enumstate *state = pvRef;
+
+    if (state->count == state->allocated)
+    {
+        DWORD new_allocated = state->allocated * 2 + 3;
+        DIDEVICEINSTANCE *new_result = CoTaskMemAlloc(sizeof(*new_result) * new_allocated);
+        if (!new_result)
+        {
+            state->hr = E_OUTOFMEMORY;
+            return DIENUM_STOP;
+        }
+        if (state->result)
+        {
+            memcpy(new_result, state->result, sizeof(*new_result) * state->count);
+            CoTaskMemFree(state->result);
+        }
+        state->result = new_result;
+        state->allocated = new_allocated;
+    }
+
+    state->result[state->count++] = *lpddi;
+    return DIENUM_CONTINUE;
+}
+
+HRESULT CDECL dinput_GetDevices(IDirectInput8 *iface, DWORD devtype, DWORD flags, DIDEVICEINSTANCE **result, DWORD *count)
+{
+    HRESULT hr;
+    struct dinput_enumstate state = {0};
+
+    WINE_TRACE("iface %p devtype %i flags 0x%x\n", iface, devtype, flags);
+
+    hr = IDirectInput8_EnumDevices(iface, devtype, dinput_EnumDevicesCallback, &state, flags);
+
+    if (FAILED(state.hr))
+        hr = state.hr;
+
+    if (SUCCEEDED(hr))
+    {
+        *result = state.result;
+        *count = state.count;
+    }
+    else
+    {
+        *result = NULL;
+        *count = 0;
+        CoTaskMemFree(state.result);
+    }
+
+    return hr;
+}
+
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 {
     WINE_TRACE("instance %p, reason %x, res %p\n", instance, reason, res);
