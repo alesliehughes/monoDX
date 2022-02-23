@@ -30,9 +30,37 @@ static HMODULE d3d9;
 
 static IDirect3D9 *(WINAPI *pDirect3DCreate9)(UINT version);
 
+HMODULE load_library_static(const char* name, HMODULE* static_var)
+{
+    HMODULE result;
+
+    if (*static_var)
+        return *static_var;
+
+    result = LoadLibraryA(name);
+
+    if (result && InterlockedExchangePointer((void* volatile*)static_var, result))
+    {
+        // Another thread beat us to it.
+        FreeLibrary(result);
+    }
+
+    return result;
+}
+
 void CDECL d3d9_Create(IDirect3D9 **iface)
 {
     WINE_TRACE("iface %p\n", iface);
+    *iface = NULL;
+    if (!pDirect3DCreate9)
+    {
+        HMODULE module = load_library_static("d3d9", &d3d9);
+        if (!module)
+            return;
+        pDirect3DCreate9 = (void*)GetProcAddress(module, "Direct3DCreate9");
+        if (!pDirect3DCreate9)
+            return;
+    }
     *iface = pDirect3DCreate9(D3D_SDK_VERSION);
     WINE_TRACE("created %p\n", *iface);
 }
@@ -79,10 +107,6 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)
 
     switch (reason)
     {
-    case DLL_PROCESS_ATTACH:
-        if (!(d3d9 = LoadLibraryA("d3d9"))) return FALSE;
-        if (!(pDirect3DCreate9 = (void*)GetProcAddress(d3d9, "Direct3DCreate9"))) return FALSE;
-        break;
     case DLL_PROCESS_DETACH:
         FreeLibrary(d3d9);
         break;
