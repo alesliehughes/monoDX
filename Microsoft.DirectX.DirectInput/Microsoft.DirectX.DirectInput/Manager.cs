@@ -21,20 +21,33 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Microsoft.DirectX.DirectInput
 {
 	public class Manager : MarshalByRefObject
 	{
+		internal static IntPtr _dinput;
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_Create([Out] out IntPtr dinput);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void dinput_Release(IntPtr dinput);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_GetDevices(IntPtr dinput, int devtype, int flags, [Out] out IntPtr result, [Out] out int count);
+
 		public static DeviceList Devices {
 			get {
-				throw new NotImplementedException ();
+				return GetDevices(DeviceClass.All, EnumDevicesFlags.AllDevices);
 			}
 		}
 
 		static Manager ()
 		{
+			Marshal.ThrowExceptionForHR(dinput_Create(out _dinput));
 			new Manager();
 		}
 
@@ -52,14 +65,34 @@ namespace Microsoft.DirectX.DirectInput
 			throw new NotImplementedException ();
 		}
 
+		internal static DeviceList GetDevices (int deviceType, EnumDevicesFlags flags)
+		{
+			IntPtr native_devices;
+			int count;
+
+			Marshal.ThrowExceptionForHR(dinput_GetDevices(_dinput, deviceType, (int)flags, out native_devices, out count));
+
+			DeviceList result = new DeviceList();
+			int disize = Marshal.SizeOf(typeof(DIDEVICEINSTANCE));
+			for (int i=0; i<count; i++)
+			{
+				result.Add(new DeviceInstance((DIDEVICEINSTANCE)Marshal.PtrToStructure(
+					IntPtr.Add(native_devices, disize * i), typeof(DIDEVICEINSTANCE))));
+			}
+
+			Marshal.FreeCoTaskMem(native_devices);
+
+			return result;
+		}
+
 		public static DeviceList GetDevices (DeviceType deviceType, EnumDevicesFlags flags)
 		{
-			throw new NotImplementedException ();
+			return GetDevices((int)deviceType, flags);
 		}
 
 		public static DeviceList GetDevices (DeviceClass deviceType, EnumDevicesFlags flags)
 		{
-			throw new NotImplementedException ();
+			return GetDevices((int)deviceType, flags);
 		}
 
 		public static bool GetDeviceAttached (Guid rguid)

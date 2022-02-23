@@ -21,9 +21,26 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.DirectX.DirectInput
 {
+	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+	internal struct DIDEVICEINSTANCE
+	{
+		public int dwSize;
+		public Guid guidInstance;
+		public Guid guidProduct;
+		public int dwDevType;
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst=260)]
+		public string tszInstanceName;
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst=260)]
+		public string tszProductName;
+		public Guid guidFFDriver;
+		public short wUsagePage;
+		public short wUsage;
+	}
+
 	public struct DeviceInstance
 	{
 		internal short m_Usage;
@@ -35,6 +52,19 @@ namespace Microsoft.DirectX.DirectInput
 		internal int m_DeviceSubType;
 		internal Guid m_ProductGuid;
 		internal Guid m_InstanceGuid;
+
+		internal DeviceInstance(DIDEVICEINSTANCE di)
+		{
+			m_Usage = di.wUsage;
+			m_UsagePage = di.wUsagePage;
+			m_FFDriverGuid = di.guidFFDriver;
+			m_ProductName = di.tszProductName;
+			m_InstanceName = di.tszInstanceName;
+			m_DeviceType = (DeviceType)(di.dwDevType & 0xff);
+			m_DeviceSubType = di.dwDevType >> 8;
+			m_ProductGuid = di.guidProduct;
+			m_InstanceGuid = di.guidInstance;
+		}
 
 		public short Usage {
 			get {
