@@ -478,7 +478,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public PresentInterval PresentationIntervals {
 			get {
-				throw new NotImplementedException ();
+				return (PresentInterval)_caps.PresentationIntervals;
 			}
 		}
 
