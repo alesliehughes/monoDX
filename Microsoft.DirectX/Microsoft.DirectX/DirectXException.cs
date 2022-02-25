@@ -85,12 +85,12 @@ namespace Microsoft.DirectX
 
 		public static void IgnoreExceptions ()
 		{
-			throw new NotImplementedException ();
+			IsExceptionIgnored = true;
 		}
 
 		public static void EnableExceptions ()
 		{
-			throw new NotImplementedException ();
+			IsExceptionIgnored = false;
 		}
 
 		public static string GetDirectXErrorString (int errorCode)
