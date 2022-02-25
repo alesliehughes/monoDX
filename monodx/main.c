@@ -117,6 +117,14 @@ HRESULT CDECL d3d9_CheckDeviceType(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE d
     return IDirect3D9_CheckDeviceType(iface, adapter, devtype, displayformat, backbufferformat, windowed);
 }
 
+HRESULT CDECL d3d9_CheckDeviceFormat(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT adapterformat,
+	DWORD usage, D3DRESOURCETYPE restype, D3DFORMAT checkformat)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, adapterformat %u, usage 0x%x, restype %u checkformat %u\n",
+		iface, adapter, devtype, adapterformat, usage, restype, checkformat);
+    return IDirect3D9_CheckDeviceFormat(iface, adapter, devtype, adapterformat, usage, restype, checkformat);
+}
+
 HRESULT CDECL dinput_Create(IDirectInput8 **iface)
 {
     HRESULT hr;

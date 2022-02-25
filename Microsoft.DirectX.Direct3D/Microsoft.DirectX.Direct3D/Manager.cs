@@ -53,6 +53,10 @@ namespace Microsoft.DirectX.Direct3D
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern int d3d9_CheckDeviceType(IntPtr d3d9, int adapter, int devtype, int displayformat, int backbufferformat, bool windowed);
 
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDeviceFormat(IntPtr d3d9, int adapter, int devtype, int adapterformat, int usage,
+			int restype, int checkformat);
+
 		internal static int GetAdapterDisplayModeCount(int adapter, Format format)
 		{
 			return (int)d3d9_GetAdapterDisplayModeCount(_d3d9, (uint)adapter, (int)format);
@@ -117,24 +121,30 @@ namespace Microsoft.DirectX.Direct3D
 			return (result == 0);
 		}
 
+		private static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, int checkFormat, out int result)
+		{
+			result = d3d9_CheckDeviceFormat(_d3d9, adapter, (int)deviceType, (int)adapterFormat, (int)usage, (int)resourceType, checkFormat);
+			return (result == 0);
+		}
+
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, checkFormat, out int dummy);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat, out int result)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, (int)checkFormat, out result);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, Format checkFormat)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, checkFormat, out int dummy);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, Format checkFormat, out int result)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, (int)checkFormat, out result);
 		}
 
 		public static bool CheckDeviceMultiSampleType (int adapter, DeviceType deviceType, Format surfaceFormat, bool windowed, MultiSampleType multiSampleType, out int result, out int qualityLevels)
