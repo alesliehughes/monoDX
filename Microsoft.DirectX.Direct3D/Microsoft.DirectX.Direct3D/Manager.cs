@@ -57,6 +57,10 @@ namespace Microsoft.DirectX.Direct3D
 		internal static extern int d3d9_CheckDeviceFormat(IntPtr d3d9, int adapter, int devtype, int adapterformat, int usage,
 			int restype, int checkformat);
 
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDepthStencilMatch(IntPtr d3d9, int adapter, int devtype, int adapterformat,
+			int rendertargetformat, int depthstencilformat);
+
 		internal static int GetAdapterDisplayModeCount(int adapter, Format format)
 		{
 			return (int)d3d9_GetAdapterDisplayModeCount(_d3d9, (uint)adapter, (int)format);
@@ -159,12 +163,13 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static bool CheckDepthStencilMatch (int adapter, DeviceType deviceType, Format adapterFormat, Format renderTargetFormat, DepthFormat depthStencilFormat, out int result)
 		{
-			throw new NotImplementedException ();
+			result = d3d9_CheckDepthStencilMatch(_d3d9, adapter, (int)deviceType, (int)adapterFormat, (int)renderTargetFormat, (int)depthStencilFormat);
+			return (result == 0);
 		}
 
 		public static bool CheckDepthStencilMatch (int adapter, DeviceType deviceType, Format adapterFormat, Format renderTargetFormat, DepthFormat depthStencilFormat)
 		{
-			throw new NotImplementedException ();
+			return CheckDepthStencilMatch(adapter, deviceType, adapterFormat, renderTargetFormat, depthStencilFormat, out int dummy);
 		}
 
 		public static bool CheckDeviceFormatConversion (int adapter, DeviceType deviceType, Format sourceFormat, Format targetFormat, out int result)
