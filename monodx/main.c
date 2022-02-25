@@ -125,6 +125,14 @@ HRESULT CDECL d3d9_CheckDeviceFormat(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE
     return IDirect3D9_CheckDeviceFormat(iface, adapter, devtype, adapterformat, usage, restype, checkformat);
 }
 
+HRESULT CDECL d3d9_CheckDeviceMultiSampleType(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT format,
+	BOOL windowed, D3DMULTISAMPLE_TYPE mstype, DWORD *qualitylevels)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, format %u, windowed %u, mstype %u\n",
+		iface, adapter, devtype, format, windowed, mstype);
+    return IDirect3D9_CheckDeviceMultiSampleType(iface, adapter, devtype, format, windowed, mstype, qualitylevels);
+}
+
 HRESULT CDECL d3d9_CheckDepthStencilMatch(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT adapterformat,
 	D3DFORMAT rendertargetformat, D3DFORMAT depthstencilformat)
 {
