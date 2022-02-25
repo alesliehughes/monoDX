@@ -110,6 +110,13 @@ void CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAP
     IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
 }
 
+HRESULT CDECL d3d9_CheckDeviceType(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT displayformat,
+	D3DFORMAT backbufferformat, BOOL windowed)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, format %u/%u, windowed\n", iface, adapter, devtype, displayformat, backbufferformat, windowed);
+    return IDirect3D9_CheckDeviceType(iface, adapter, devtype, displayformat, backbufferformat, windowed);
+}
+
 HRESULT CDECL dinput_Create(IDirectInput8 **iface)
 {
     HRESULT hr;

@@ -50,6 +50,9 @@ namespace Microsoft.DirectX.Direct3D
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
 
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDeviceType(IntPtr d3d9, int adapter, int devtype, int displayformat, int backbufferformat, bool windowed);
+
 		internal static int GetAdapterDisplayModeCount(int adapter, Format format)
 		{
 			return (int)d3d9_GetAdapterDisplayModeCount(_d3d9, (uint)adapter, (int)format);
@@ -105,12 +108,13 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static bool CheckDeviceType (int adapter, DeviceType checkType, Format displayFormat, Format backBufferFormat, bool windowed)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceType(adapter, checkType, displayFormat, backBufferFormat, windowed, out int dummy);
 		}
 
 		public static bool CheckDeviceType (int adapter, DeviceType checkType, Format displayFormat, Format backBufferFormat, bool windowed, out int result)
 		{
-			throw new NotImplementedException ();
+			result = d3d9_CheckDeviceType(_d3d9, adapter, (int)checkType, (int)displayFormat, (int)backBufferFormat, windowed);
+			return (result == 0);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat)
