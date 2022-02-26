@@ -45,10 +45,10 @@ namespace Microsoft.DirectX.Direct3D
 		internal static extern uint d3d9_GetAdapterDisplayModeCount([In] IntPtr d3d9, [In] uint adapter, [In] int format);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
-		internal static extern void d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [In] int format, [Out] out DisplayMode.D3DDISPLAYMODE mode);
+		internal static extern int d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [In] int format, [Out] out DisplayMode.D3DDISPLAYMODE mode);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
-		internal static extern void d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
+		internal static extern int d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern int d3d9_CheckDeviceType(IntPtr d3d9, int adapter, int devtype, int displayformat, int backbufferformat, bool windowed);
@@ -79,7 +79,8 @@ namespace Microsoft.DirectX.Direct3D
 
 		internal static DisplayMode GetAdapterDisplayMode(int adapter, int index, Format format)
 		{
-			d3d9_GetAdapterDisplayMode(_d3d9, (uint)adapter, (uint)index, (int)format, out var mode);
+			GraphicsException.CheckHR(
+				d3d9_GetAdapterDisplayMode(_d3d9, (uint)adapter, (uint)index, (int)format, out var mode));
 			return new DisplayMode(mode);
 		}
 
@@ -189,7 +190,8 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static Caps GetDeviceCaps (int adapter, DeviceType deviceType)
 		{
-			d3d9_GetDeviceCaps(_d3d9, (uint)adapter, (uint)deviceType, out var caps);
+			GraphicsException.CheckHR(
+				d3d9_GetDeviceCaps(_d3d9, (uint)adapter, (uint)deviceType, out var caps));
 			return new Caps(caps);
 		}
 

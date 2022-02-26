@@ -98,16 +98,16 @@ HRESULT CDECL d3d9_GetAdapterCurrentDisplayMode(IDirect3D9 *iface, UINT adapter,
     return IDirect3D9_GetAdapterDisplayMode(iface, adapter, mode);
 }
 
-void CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT index, UINT format, D3DDISPLAYMODE *mode)
+HRESULT CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT index, UINT format, D3DDISPLAYMODE *mode)
 {
     WINE_TRACE("iface %p, adapter %u, index %u, mode %p\n", iface, adapter, index, mode);
-    IDirect3D9_EnumAdapterModes(iface, adapter, format, index, mode);
+    return IDirect3D9_EnumAdapterModes(iface, adapter, format, index, mode);
 }
 
-void CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAPS9 *caps)
+HRESULT CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAPS9 *caps)
 {
     WINE_TRACE("iface %p, adapter %u, type %u, caps %p\n", iface, adapter, type, caps);
-    IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
+    return IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
 }
 
 HRESULT CDECL d3d9_CheckDeviceType(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT displayformat,
