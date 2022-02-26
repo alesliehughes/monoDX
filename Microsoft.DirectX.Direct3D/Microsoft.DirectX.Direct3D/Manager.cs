@@ -72,7 +72,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		internal static DisplayMode GetAdapterCurrentDisplayMode(int adapter)
 		{
-			Marshal.ThrowExceptionForHR(
+			GraphicsException.CheckHR(
 				d3d9_GetAdapterCurrentDisplayMode(_d3d9, (uint)adapter, out var mode));
 			return new DisplayMode(mode);
 		}

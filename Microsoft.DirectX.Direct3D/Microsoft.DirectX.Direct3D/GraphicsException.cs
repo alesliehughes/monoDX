@@ -45,10 +45,30 @@ namespace Microsoft.DirectX.Direct3D
 		{
 		}
 
+		internal const int DeviceLost = unchecked((int)0x88760868);
+
 		[EditorBrowsable]
 		public static new Exception GetExceptionFromResultInternal (int resultCode)
 		{
-			throw new NotImplementedException ();
+			switch (resultCode)
+			{
+			case DeviceLost:
+				return new DeviceLostException();
+			default:
+				return new GraphicsException(String.Format("HRESULT {0}", resultCode));
+			}
+		}
+
+		internal static void CheckHR (int hr)
+		{
+			if (hr != 0)
+			{
+				// FIXME: Set DirectXException.LastError?
+				if (!IsExceptionIgnored)
+				{
+					throw GetExceptionFromResultInternal (hr);
+				}
+			}
 		}
 	}
 }
