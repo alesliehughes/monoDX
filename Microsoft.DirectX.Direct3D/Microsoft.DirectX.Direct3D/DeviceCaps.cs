@@ -26,165 +26,174 @@ namespace Microsoft.DirectX.Direct3D
 {
 	public struct DeviceCaps
 	{
+		internal uint devcaps;
+		internal uint devcaps2;
+
+		internal DeviceCaps(uint devcaps, uint devcaps2)
+		{
+			this.devcaps = devcaps;
+			this.devcaps2 = devcaps2;
+		}
+
 		public bool VertexElementScanSharesStreamOffset {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x40) != 0;
 			}
 		}
 
 		public bool CanStretchRectangleFromTextures {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x10) != 0;
 			}
 		}
 
 		public bool SupportsAdaptiveTessellateNPatch {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x8) != 0;
 			}
 		}
 
 		public bool SupportsAdaptiveTessellateRtPatch {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x4) != 0;
 			}
 		}
 
 		public bool SupportsDMapNPatch {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x2) != 0;
 			}
 		}
 
 		public bool SupportsStreamOffset {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x1) != 0;
 			}
 		}
 
 		public bool SupportsPreSampledDMapNPatch {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps2 & 0x20) != 0;
 			}
 		}
 
 		public bool SupportsNPatches {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x1000000) != 0;
 			}
 		}
 
 		public bool SupportsRtPatchHandleZero {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x800000) != 0;
 			}
 		}
 
 		public bool SupportsRtPatches {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x400000) != 0;
 			}
 		}
 
 		public bool SupportsQuinticRtPatches {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x200000) != 0;
 			}
 		}
 
 		public bool SupportsPureDevice {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x100000) != 0;
 			}
 		}
 
 		public bool SupportsHardwareRasterization {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x80000) != 0;
 			}
 		}
 
 		public bool CanDrawSystemToNonLocal {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x20000) != 0;
 			}
 		}
 
 		public bool SupportsHardwareTransformAndLight {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x10000) != 0;
 			}
 		}
 
 		public bool SupportsDrawPrimitives2Ex {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x8000) != 0;
 			}
 		}
 
 		public bool SupportsSeparateTextureMemories {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x4000) != 0;
 			}
 		}
 
 		public bool SupportsDrawPrimitives2 {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x2000) != 0;
 			}
 		}
 
 		public bool SupportsTextureNonLocalVideoMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x1000) != 0;
 			}
 		}
 
 		public bool CanRenderAfterFlip {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x800) != 0;
 			}
 		}
 
 		public bool SupportsDrawPrimitivesTransformedVertex {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x400) != 0;
 			}
 		}
 
 		public bool SupportsTextureVideoMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x200) != 0;
 			}
 		}
 
 		public bool SupportsTextureSystemMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x100) != 0;
 			}
 		}
 
 		public bool SupportsTransformedVertexVideoMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x80) != 0;
 			}
 		}
 
 		public bool SupportsTransformedVertexSystemMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x40) != 0;
 			}
 		}
 
 		public bool SupportsExecuteVideoMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x20) != 0;
 			}
 		}
 
 		public bool SupportsExecuteSystemMemory {
 			get {
-				throw new NotImplementedException ();
+				return (devcaps & 0x10) != 0;
 			}
 		}
 
