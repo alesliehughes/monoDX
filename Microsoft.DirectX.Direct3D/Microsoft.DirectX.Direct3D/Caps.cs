@@ -466,7 +466,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public DeviceCaps DeviceCaps {
 			get {
-				throw new NotImplementedException ();
+				return new DeviceCaps(_caps.DevCaps, _caps.DevCaps2);
 			}
 		}
 
