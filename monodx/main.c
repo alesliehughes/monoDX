@@ -104,6 +104,12 @@ HRESULT CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT i
     return IDirect3D9_EnumAdapterModes(iface, adapter, format, index, mode);
 }
 
+HRESULT CDECL d3d9_GetAdapterIdentifier(IDirect3D9 *iface, UINT adapter, UINT flags, D3DADAPTER_IDENTIFIER9 *id)
+{
+    WINE_TRACE("iface %p, adapter %u, flags 0x%x\n", iface, adapter, flags);
+    return IDirect3D9_GetAdapterIdentifier(iface, adapter, flags, id);
+}
+
 HRESULT CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAPS9 *caps)
 {
     WINE_TRACE("iface %p, adapter %u, type %u, caps %p\n", iface, adapter, type, caps);

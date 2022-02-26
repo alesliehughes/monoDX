@@ -48,6 +48,9 @@ namespace Microsoft.DirectX.Direct3D
 		internal static extern int d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [In] int format, [Out] out DisplayMode.D3DDISPLAYMODE mode);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_GetAdapterIdentifier(IntPtr d3d9, uint adapter, int flags, out AdapterDetails.D3DADAPTER_IDENTIFIER9 id);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern int d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
@@ -82,6 +85,13 @@ namespace Microsoft.DirectX.Direct3D
 			GraphicsException.CheckHR(
 				d3d9_GetAdapterDisplayMode(_d3d9, (uint)adapter, (uint)index, (int)format, out var mode));
 			return new DisplayMode(mode);
+		}
+
+		internal static AdapterDetails GetAdapterIdentifier(int adapter)
+		{
+			GraphicsException.CheckHR(
+				d3d9_GetAdapterIdentifier(_d3d9, (uint)adapter, 0, out var result));
+			return new AdapterDetails(result);
 		}
 
 		public static AdapterListCollection Adapters {
