@@ -45,10 +45,28 @@ namespace Microsoft.DirectX.Direct3D
 		internal static extern uint d3d9_GetAdapterDisplayModeCount([In] IntPtr d3d9, [In] uint adapter, [In] int format);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
-		internal static extern void d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [In] int format, [Out] out DisplayMode.D3DDISPLAYMODE mode);
+		internal static extern int d3d9_GetAdapterDisplayMode([In] IntPtr d3d9, [In] uint adapter, [In] uint index, [In] int format, [Out] out DisplayMode.D3DDISPLAYMODE mode);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
-		internal static extern void d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
+		internal static extern int d3d9_GetAdapterIdentifier(IntPtr d3d9, uint adapter, int flags, out AdapterDetails.D3DADAPTER_IDENTIFIER9 id);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_GetDeviceCaps([In] IntPtr d3d9, [In] uint adapter, [In] uint type, [Out] out Caps.D3DCAPS9 caps);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDeviceType(IntPtr d3d9, int adapter, int devtype, int displayformat, int backbufferformat, bool windowed);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDeviceFormat(IntPtr d3d9, int adapter, int devtype, int adapterformat, int usage,
+			int restype, int checkformat);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDepthStencilMatch(IntPtr d3d9, int adapter, int devtype, int adapterformat,
+			int rendertargetformat, int depthstencilformat);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int d3d9_CheckDeviceMultiSampleType(IntPtr d3d9, int adapter, int devtype, int format,
+			bool windowed, int mstype, out int qualitylevels);
 
 		internal static int GetAdapterDisplayModeCount(int adapter, Format format)
 		{
@@ -57,15 +75,23 @@ namespace Microsoft.DirectX.Direct3D
 
 		internal static DisplayMode GetAdapterCurrentDisplayMode(int adapter)
 		{
-			Marshal.ThrowExceptionForHR(
+			GraphicsException.CheckHR(
 				d3d9_GetAdapterCurrentDisplayMode(_d3d9, (uint)adapter, out var mode));
 			return new DisplayMode(mode);
 		}
 
 		internal static DisplayMode GetAdapterDisplayMode(int adapter, int index, Format format)
 		{
-			d3d9_GetAdapterDisplayMode(_d3d9, (uint)adapter, (uint)index, (int)format, out var mode);
+			GraphicsException.CheckHR(
+				d3d9_GetAdapterDisplayMode(_d3d9, (uint)adapter, (uint)index, (int)format, out var mode));
 			return new DisplayMode(mode);
+		}
+
+		internal static AdapterDetails GetAdapterIdentifier(int adapter)
+		{
+			GraphicsException.CheckHR(
+				d3d9_GetAdapterIdentifier(_d3d9, (uint)adapter, 0, out var result));
+			return new AdapterDetails(result);
 		}
 
 		public static AdapterListCollection Adapters {
@@ -105,52 +131,61 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static bool CheckDeviceType (int adapter, DeviceType checkType, Format displayFormat, Format backBufferFormat, bool windowed)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceType(adapter, checkType, displayFormat, backBufferFormat, windowed, out int dummy);
 		}
 
 		public static bool CheckDeviceType (int adapter, DeviceType checkType, Format displayFormat, Format backBufferFormat, bool windowed, out int result)
 		{
-			throw new NotImplementedException ();
+			result = d3d9_CheckDeviceType(_d3d9, adapter, (int)checkType, (int)displayFormat, (int)backBufferFormat, windowed);
+			return (result == 0);
+		}
+
+		private static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, int checkFormat, out int result)
+		{
+			result = d3d9_CheckDeviceFormat(_d3d9, adapter, (int)deviceType, (int)adapterFormat, (int)usage, (int)resourceType, checkFormat);
+			return (result == 0);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, checkFormat, out int dummy);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, DepthFormat checkFormat, out int result)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, (int)checkFormat, out result);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, Format checkFormat)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, checkFormat, out int dummy);
 		}
 
 		public static bool CheckDeviceFormat (int adapter, DeviceType deviceType, Format adapterFormat, Usage usage, ResourceType resourceType, Format checkFormat, out int result)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceFormat(adapter, deviceType, adapterFormat, usage, resourceType, (int)checkFormat, out result);
 		}
 
 		public static bool CheckDeviceMultiSampleType (int adapter, DeviceType deviceType, Format surfaceFormat, bool windowed, MultiSampleType multiSampleType, out int result, out int qualityLevels)
 		{
-			throw new NotImplementedException ();
+			result = d3d9_CheckDeviceMultiSampleType(_d3d9, adapter, (int)deviceType, (int)surfaceFormat, windowed, (int)multiSampleType, out qualityLevels);
+			return (result == 0);
 		}
 
 		public static bool CheckDeviceMultiSampleType (int adapter, DeviceType deviceType, Format surfaceFormat, bool windowed, MultiSampleType multiSampleType)
 		{
-			throw new NotImplementedException ();
+			return CheckDeviceMultiSampleType(adapter, deviceType, surfaceFormat, windowed, multiSampleType, out int dummy, out int dummy2);
 		}
 
 		public static bool CheckDepthStencilMatch (int adapter, DeviceType deviceType, Format adapterFormat, Format renderTargetFormat, DepthFormat depthStencilFormat, out int result)
 		{
-			throw new NotImplementedException ();
+			result = d3d9_CheckDepthStencilMatch(_d3d9, adapter, (int)deviceType, (int)adapterFormat, (int)renderTargetFormat, (int)depthStencilFormat);
+			return (result == 0);
 		}
 
 		public static bool CheckDepthStencilMatch (int adapter, DeviceType deviceType, Format adapterFormat, Format renderTargetFormat, DepthFormat depthStencilFormat)
 		{
-			throw new NotImplementedException ();
+			return CheckDepthStencilMatch(adapter, deviceType, adapterFormat, renderTargetFormat, depthStencilFormat, out int dummy);
 		}
 
 		public static bool CheckDeviceFormatConversion (int adapter, DeviceType deviceType, Format sourceFormat, Format targetFormat, out int result)
@@ -165,7 +200,8 @@ namespace Microsoft.DirectX.Direct3D
 
 		public static Caps GetDeviceCaps (int adapter, DeviceType deviceType)
 		{
-			d3d9_GetDeviceCaps(_d3d9, (uint)adapter, (uint)deviceType, out var caps);
+			GraphicsException.CheckHR(
+				d3d9_GetDeviceCaps(_d3d9, (uint)adapter, (uint)deviceType, out var caps));
 			return new Caps(caps);
 		}
 

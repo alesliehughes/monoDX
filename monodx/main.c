@@ -98,16 +98,53 @@ HRESULT CDECL d3d9_GetAdapterCurrentDisplayMode(IDirect3D9 *iface, UINT adapter,
     return IDirect3D9_GetAdapterDisplayMode(iface, adapter, mode);
 }
 
-void CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT index, UINT format, D3DDISPLAYMODE *mode)
+HRESULT CDECL d3d9_GetAdapterDisplayMode(IDirect3D9 *iface, UINT adapter, UINT index, UINT format, D3DDISPLAYMODE *mode)
 {
     WINE_TRACE("iface %p, adapter %u, index %u, mode %p\n", iface, adapter, index, mode);
-    IDirect3D9_EnumAdapterModes(iface, adapter, format, index, mode);
+    return IDirect3D9_EnumAdapterModes(iface, adapter, format, index, mode);
 }
 
-void CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAPS9 *caps)
+HRESULT CDECL d3d9_GetAdapterIdentifier(IDirect3D9 *iface, UINT adapter, UINT flags, D3DADAPTER_IDENTIFIER9 *id)
+{
+    WINE_TRACE("iface %p, adapter %u, flags 0x%x\n", iface, adapter, flags);
+    return IDirect3D9_GetAdapterIdentifier(iface, adapter, flags, id);
+}
+
+HRESULT CDECL d3d9_GetDeviceCaps(IDirect3D9 *iface, UINT adapter, UINT type, D3DCAPS9 *caps)
 {
     WINE_TRACE("iface %p, adapter %u, type %u, caps %p\n", iface, adapter, type, caps);
-    IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
+    return IDirect3D9_GetDeviceCaps(iface, adapter, type, caps);
+}
+
+HRESULT CDECL d3d9_CheckDeviceType(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT displayformat,
+	D3DFORMAT backbufferformat, BOOL windowed)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, format %u/%u, windowed\n", iface, adapter, devtype, displayformat, backbufferformat, windowed);
+    return IDirect3D9_CheckDeviceType(iface, adapter, devtype, displayformat, backbufferformat, windowed);
+}
+
+HRESULT CDECL d3d9_CheckDeviceFormat(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT adapterformat,
+	DWORD usage, D3DRESOURCETYPE restype, D3DFORMAT checkformat)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, adapterformat %u, usage 0x%x, restype %u checkformat %u\n",
+		iface, adapter, devtype, adapterformat, usage, restype, checkformat);
+    return IDirect3D9_CheckDeviceFormat(iface, adapter, devtype, adapterformat, usage, restype, checkformat);
+}
+
+HRESULT CDECL d3d9_CheckDeviceMultiSampleType(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT format,
+	BOOL windowed, D3DMULTISAMPLE_TYPE mstype, DWORD *qualitylevels)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, format %u, windowed %u, mstype %u\n",
+		iface, adapter, devtype, format, windowed, mstype);
+    return IDirect3D9_CheckDeviceMultiSampleType(iface, adapter, devtype, format, windowed, mstype, qualitylevels);
+}
+
+HRESULT CDECL d3d9_CheckDepthStencilMatch(IDirect3D9 *iface, UINT adapter, D3DDEVTYPE devtype, D3DFORMAT adapterformat,
+	D3DFORMAT rendertargetformat, D3DFORMAT depthstencilformat)
+{
+    WINE_TRACE("iface %p, adapter %u, devtype %u, adapterformat %u, rendertargetformat %u, depthsencilformat %u\n",
+		iface, adapter, devtype, adapterformat, rendertargetformat, depthstencilformat);
+	return IDirect3D9_CheckDepthStencilMatch(iface, adapter, devtype, adapterformat, rendertargetformat, depthstencilformat);
 }
 
 HRESULT CDECL dinput_Create(IDirectInput8 **iface)

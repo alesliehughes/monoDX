@@ -53,7 +53,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public bool MoveNext ()
 		{
-			if (_index >= _count) return false;
+			if (_index >= (_count - 1)) return false;
 			_index++;
 			return true;
 		}
