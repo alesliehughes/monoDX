@@ -21,144 +21,170 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Microsoft.DirectX.Direct3D
 {
 	public sealed class PresentParameters : ICloneable
 	{
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct D3DPRESENT_PARAMETERS
+		{
+			public int BackBufferWidth;
+			public int BackBufferHeight;
+			public int BackBufferFormat;
+			public int BackBufferCount;
+			public int MultiSampleType;
+			public int MultiSampleQuality;
+			public int SwapEffect;
+			public IntPtr hDeviceWindow;
+			public bool Windowed;
+			public bool EnableAutoDepthStencil;
+			public int AutoDepthStencilFormat;
+			public int Flags;
+			public int FullScreen_RefreshRateInHz;
+			public int PresentationInterval;
+		}
+
+		internal D3DPRESENT_PARAMETERS _params;
+
+		private Control deviceWindowControl;
+
 		public int MultiSampleQuality {
 			get {
-				throw new NotImplementedException ();
+				return _params.MultiSampleQuality;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.MultiSampleQuality = value;
 			}
 		}
 
 		public PresentInterval PresentationInterval {
 			get {
-				throw new NotImplementedException ();
+				return (PresentInterval)_params.PresentationInterval;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.PresentationInterval = (int)value;
 			}
 		}
 
 		public int FullScreenRefreshRateInHz {
 			get {
-				throw new NotImplementedException ();
+				return _params.FullScreen_RefreshRateInHz;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.FullScreen_RefreshRateInHz = value;
 			}
 		}
 
 		public PresentFlag PresentFlag {
 			get {
-				throw new NotImplementedException ();
+				return (PresentFlag)_params.Flags;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.Flags = (int)value;
 			}
 		}
 
 		public DepthFormat AutoDepthStencilFormat {
 			get {
-				throw new NotImplementedException ();
+				return (DepthFormat)_params.AutoDepthStencilFormat;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.AutoDepthStencilFormat = (int)value;
 			}
 		}
 
 		public bool EnableAutoDepthStencil {
 			get {
-				throw new NotImplementedException ();
+				return _params.EnableAutoDepthStencil;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.EnableAutoDepthStencil = value;
 			}
 		}
 
 		public bool Windowed {
 			get {
-				throw new NotImplementedException ();
+				return _params.Windowed;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.Windowed = value;
 			}
 		}
 
 		public IntPtr DeviceWindowHandle {
 			get {
-				throw new NotImplementedException ();
+				return _params.hDeviceWindow;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.hDeviceWindow = value;
+				deviceWindowControl = null;
 			}
 		}
 
 		public Control DeviceWindow {
 			get {
-				throw new NotImplementedException ();
+				return deviceWindowControl;
 			}
 			set {
-				throw new NotImplementedException ();
+				DeviceWindowHandle = value.Handle;
+				deviceWindowControl = value;
 			}
 		}
 
 		public SwapEffect SwapEffect {
 			get {
-				throw new NotImplementedException ();
+				return (SwapEffect)_params.SwapEffect;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.SwapEffect = (int)value;
 			}
 		}
 
 		public MultiSampleType MultiSample {
 			get {
-				throw new NotImplementedException ();
+				return (MultiSampleType)_params.MultiSampleType;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.MultiSampleType = (int)value;
 			}
 		}
 
 		public int BackBufferCount {
 			get {
-				throw new NotImplementedException ();
+				return _params.BackBufferCount;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.BackBufferCount = value;
 			}
 		}
 
 		public Format BackBufferFormat {
 			get {
-				throw new NotImplementedException ();
+				return (Format)_params.BackBufferFormat;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.BackBufferFormat = (int)value;
 			}
 		}
 
 		public int BackBufferHeight {
 			get {
-				throw new NotImplementedException ();
+				return _params.BackBufferHeight;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.BackBufferHeight = value;
 			}
 		}
 
 		public int BackBufferWidth {
 			get {
-				throw new NotImplementedException ();
+				return _params.BackBufferWidth;
 			}
 			set {
-				throw new NotImplementedException ();
+				_params.BackBufferWidth = value;
 			}
 		}
 
@@ -174,17 +200,17 @@ namespace Microsoft.DirectX.Direct3D
 
 		public PresentParameters ()
 		{
-			throw new NotImplementedException ();
 		}
 
 		public PresentParameters (PresentParameters original)
 		{
-			throw new NotImplementedException ();
+			_params = original._params;
+			deviceWindowControl = original.deviceWindowControl;
 		}
 
 		public object Clone ()
 		{
-			throw new NotImplementedException ();
+			return new PresentParameters(this);
 		}
 
 		public override string ToString ()
