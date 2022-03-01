@@ -9,6 +9,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Test.Microsoft.DirectX.Direct3D</RootNamespace>
     <AssemblyName>Test.Microsoft.DirectX.Direct3D</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
