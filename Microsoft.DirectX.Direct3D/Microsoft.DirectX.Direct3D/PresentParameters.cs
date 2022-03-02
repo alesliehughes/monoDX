@@ -129,8 +129,13 @@ namespace Microsoft.DirectX.Direct3D
 				return deviceWindowControl;
 			}
 			set {
-				DeviceWindowHandle = value.Handle;
-				deviceWindowControl = value;
+				if (value != null)
+				{
+					DeviceWindowHandle = value.Handle;
+					deviceWindowControl = value;
+				}
+				else
+					DeviceWindowHandle = IntPtr.Zero;
 			}
 		}
 
