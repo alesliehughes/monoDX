@@ -37,6 +37,17 @@ namespace Microsoft.DirectX.Direct3D
 
 		private D3DDISPLAYMODE _mode;
 
+#if CSHARP10
+		public DisplayMode()
+		{
+			ParameterlessInit();
+		}
+#endif
+
+		internal void ParameterlessInit()
+		{
+		}
+
 		internal DisplayMode(D3DDISPLAYMODE mode)
 		{
 			_mode = mode;
