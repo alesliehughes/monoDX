@@ -50,7 +50,7 @@ namespace Microsoft.DirectX.DirectSound
 
 		public object Current {
 			get {
-				if (m_devices != null || m_devices.Count == 0)
+				if (m_devices == null || m_devices.Count == 0)
 				{
 					return null;
 				}
@@ -64,27 +64,20 @@ namespace Microsoft.DirectX.DirectSound
 
 		[UnmanagedFunctionPointerAttribute(CallingConvention.StdCall)]
 		[return: MarshalAs(UnmanagedType.I4)]
-		delegate bool ds_enum_cb(UIntPtr guid, [MarshalAs(UnmanagedType.LPWStr)] string desc, [MarshalAs(UnmanagedType.LPWStr)] string module, IntPtr context);
+		delegate bool ds_enum_cb(IntPtr guid, [MarshalAs(UnmanagedType.LPWStr)] string desc, [MarshalAs(UnmanagedType.LPWStr)] string module, IntPtr context);
 
 		[DllImport("dsound.dll", CallingConvention=CallingConvention.StdCall)]
 		extern static int DirectSoundEnumerateW([MarshalAs(UnmanagedType.FunctionPtr)] ds_enum_cb func , IntPtr context);
 
-		private bool my_enum(UIntPtr guid, string desc, string module, IntPtr context)
+		private bool my_enum(IntPtr guid, string desc, string module, IntPtr context)
 		{
 			DeviceInformation info = new DeviceInformation();
-			Guid local = new Guid();
-
-			if(guid != null)
-				return true;
 
 			info.m_modulename = module;
 			info.m_description = desc;
 
-			if(guid != null)
-			{
-				local = Guid.NewGuid(); // FIXME("Convert UIntPtr to GUID");
-			}
-			info.m_driver = local;
+			if(guid != IntPtr.Zero)
+				info.m_driver = (Guid)Marshal.PtrToStructure(guid, typeof(System.Guid));
 
 			m_devices.Add(info);
 
