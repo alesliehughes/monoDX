@@ -193,15 +193,7 @@ namespace Microsoft.DirectX.Direct3D
 			}
 		}
 
-		public bool ForceNoMultiThreadedFlag {
-			get {
-				throw new NotImplementedException ();
-			}
-
-			set {
-				throw new NotImplementedException ();
-			}
-		}
+		public bool ForceNoMultiThreadedFlag { get; set; }
 
 		public PresentParameters ()
 		{
