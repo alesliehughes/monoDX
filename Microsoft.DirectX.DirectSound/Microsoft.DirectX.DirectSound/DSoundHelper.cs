@@ -92,7 +92,6 @@ namespace Microsoft.DirectX.DirectSound
 
 		static DSoundHelper()
 		{
-			throw new NotImplementedException ();
 		}
 	}
 }
