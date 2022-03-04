@@ -66,6 +66,7 @@ namespace Microsoft.DirectX.DirectSound
 		public static readonly Guid Guid3DAlgorithmHrtfFull;
 		public static readonly Guid Guid3DAlgorithmHrtfLight;
 		public static readonly Guid DefaultPlaybackDevice;
+		[Microsoft.VisualC.IsConstModifier]
 		public static readonly Guid DefaultCaptureDevice;
 		public static readonly Guid DefaultVoicePlaybackDevice;
 		public static readonly Guid DefaultVoiceCaptureDevice;
@@ -91,7 +92,6 @@ namespace Microsoft.DirectX.DirectSound
 
 		static DSoundHelper()
 		{
-			throw new NotImplementedException ();
 		}
 	}
 }

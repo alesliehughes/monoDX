@@ -129,8 +129,13 @@ namespace Microsoft.DirectX.Direct3D
 				return deviceWindowControl;
 			}
 			set {
-				DeviceWindowHandle = value.Handle;
-				deviceWindowControl = value;
+				if (value != null)
+				{
+					DeviceWindowHandle = value.Handle;
+					deviceWindowControl = value;
+				}
+				else
+					DeviceWindowHandle = IntPtr.Zero;
 			}
 		}
 
@@ -188,15 +193,7 @@ namespace Microsoft.DirectX.Direct3D
 			}
 		}
 
-		public bool ForceNoMultiThreadedFlag {
-			get {
-				throw new NotImplementedException ();
-			}
-
-			set {
-				throw new NotImplementedException ();
-			}
-		}
+		public bool ForceNoMultiThreadedFlag { get; set; }
 
 		public PresentParameters ()
 		{
