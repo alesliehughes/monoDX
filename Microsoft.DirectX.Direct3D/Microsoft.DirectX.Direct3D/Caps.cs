@@ -153,7 +153,7 @@ namespace Microsoft.DirectX.Direct3D
 
 		public Version PixelShaderVersion {
 			get {
-				throw new NotImplementedException ();
+				return new Version((int)(_caps.PixelShaderVersion >> 8) & 0xff, (int)_caps.PixelShaderVersion & 0xff);
 			}
 		}
 
