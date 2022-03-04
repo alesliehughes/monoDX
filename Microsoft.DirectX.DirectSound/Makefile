@@ -10,6 +10,7 @@ LIB_SRCS=$(shell cat sources.list)
 
 all: Microsoft.DirectX.DirectSound.dll
 
-Microsoft.DirectX.DirectSound.dll: sources.list $(LIB_SRCS) $(LIB_REF_FILES)
+Microsoft.DirectX.DirectSound.dll: sources.list $(LIB_SRCS) $(LIB_REF_FILES) ../FixupConstructors/FixupConstructors.exe
 	$(COMPILE_LIB) $(LIB_FLAGS) $(LIB_REFS) $(LIB_REF_FILES:%=-r:%) -out:$@ @sources.list
+	mono ../FixupConstructors/FixupConstructors.exe $@
 	sn -R $@ ../mono.snk

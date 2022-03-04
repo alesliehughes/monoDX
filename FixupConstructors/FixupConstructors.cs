@@ -51,51 +51,89 @@ class FixupConstructors
 		return false;
 	}
 
+	static bool FixupTypeConstructor (ModuleDefinition module, TypeDefinition typedef)
+	{
+		if (!typedef.IsValueType)
+			return false;
+
+		MethodDefinition init_method = null;
+
+		foreach (MethodDefinition method in typedef.Methods)
+		{
+			if (method.IsSpecialName && !method.IsStatic && method.Name == ".ctor" && method.Parameters.Count == 0)
+			{
+				return false;
+			}
+			if (method.Name == "ParameterlessInit" && !method.IsStatic && method.Parameters.Count == 0)
+			{
+				init_method = method;
+			}
+		}
+		if (init_method == null)
+			return false;
+
+		TypeReference void_type = module.ImportReference(typeof(void));
+
+		MethodDefinition new_ctor = new MethodDefinition(".ctor",
+			MethodAttributes.Public|MethodAttributes.SpecialName|MethodAttributes.RTSpecialName|MethodAttributes.HideBySig,
+			void_type);
+
+		MethodBody new_body = new MethodBody(new_ctor);
+
+		new_body.Instructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+		new_body.Instructions.Add(Instruction.Create(OpCodes.Call, init_method));
+		new_body.Instructions.Add(Instruction.Create(OpCodes.Ret));
+
+		new_ctor.Body = new_body;
+		typedef.Methods.Add(new_ctor);
+
+		return true;
+	}
+
+	static bool FixupConstFields (ModuleDefinition module, TypeDefinition typedef)
+	{
+		bool changed = false;
+
+		foreach (FieldDefinition field in typedef.Fields)
+		{
+			if (!field.IsPublic)
+				continue;
+
+			CustomAttribute const_modifier_attr = null;
+
+			foreach (var ca in field.CustomAttributes)
+			{
+				if (ca.Constructor.DeclaringType.Name == "IsConstModifier")
+				{
+					const_modifier_attr = ca;
+				}
+			}
+
+			if (const_modifier_attr != null)
+			{
+				field.FieldType = new OptionalModifierType(const_modifier_attr.Constructor.DeclaringType, field.FieldType);
+				field.CustomAttributes.Remove(const_modifier_attr);
+				changed = true;
+			}
+		}
+
+		return changed;
+	}
+
 	static bool FixupModule (ModuleDefinition module)
 	{
 		bool changed = false;
 
 		foreach (TypeDefinition typedef in module.Types)
 		{
-			if (!typedef.IsValueType)
-				continue;
 			if (!IsPublicTypeDefinition(typedef))
 				continue;
 
-			bool has_parameterless_ctor = false;
-			MethodDefinition init_method = null;
+			if (FixupTypeConstructor (module, typedef))
+				changed = true;
 
-			foreach (MethodDefinition method in typedef.Methods)
-			{
-				if (method.IsSpecialName && !method.IsStatic && method.Name == ".ctor" && method.Parameters.Count == 0)
-				{
-					has_parameterless_ctor = true;
-					break;
-				}
-				if (method.Name == "ParameterlessInit" && !method.IsStatic && method.Parameters.Count == 0)
-				{
-					init_method = method;
-				}
-			}
-			if (has_parameterless_ctor || init_method == null)
-				continue;
-
-			TypeReference void_type = module.ImportReference(typeof(void));
-
-			MethodDefinition new_ctor = new MethodDefinition(".ctor",
-				MethodAttributes.Public|MethodAttributes.SpecialName|MethodAttributes.RTSpecialName|MethodAttributes.HideBySig,
-				void_type);
-
-			MethodBody new_body = new MethodBody(new_ctor);
-
-			new_body.Instructions.Add(Instruction.Create(OpCodes.Ldarg_0));
-			new_body.Instructions.Add(Instruction.Create(OpCodes.Call, init_method));
-			new_body.Instructions.Add(Instruction.Create(OpCodes.Ret));
-
-			new_ctor.Body = new_body;
-			typedef.Methods.Add(new_ctor);
-
-			changed = true;
+			if (FixupConstFields (module, typedef))
+				changed = true;
 		}
 		return changed;
 	}
