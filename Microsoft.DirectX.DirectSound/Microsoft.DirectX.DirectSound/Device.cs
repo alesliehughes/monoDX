@@ -70,17 +70,26 @@ namespace Microsoft.DirectX.DirectSound
 		
 		public override bool Equals (object compare)
 		{
-			throw new NotImplementedException ();
+			if (compare is Device device)
+			{
+				return this == device;
+			}
+
+			return false;
 		}
 		
 		public static bool operator == (Device left, Device right)
 		{
-			throw new NotImplementedException ();
+			if (left is null)
+				return (right is null);
+			if (right is null)
+				return false;
+			return true;
 		}
 		
 		public static bool operator != (Device left, Device right)
 		{
-			throw new NotImplementedException ();
+			return !(left == right);
 		}
 
 		public override int GetHashCode ()
@@ -95,6 +104,7 @@ namespace Microsoft.DirectX.DirectSound
 
 		public Device (Guid guidDev)
 		{
+			// TODO: Also account for guid in operator==
 			throw new NotImplementedException ();
 		}
 
