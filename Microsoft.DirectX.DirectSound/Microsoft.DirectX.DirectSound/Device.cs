@@ -28,6 +28,8 @@ namespace Microsoft.DirectX.DirectSound
 {
 	public class Device : MarshalByRefObject, IDisposable
 	{
+		private Guid guid;
+
 		public event EventHandler Disposing {
 
 			add {
@@ -70,22 +72,31 @@ namespace Microsoft.DirectX.DirectSound
 		
 		public override bool Equals (object compare)
 		{
-			throw new NotImplementedException ();
+			if (compare is Device device)
+			{
+				return this == device;
+			}
+
+			return false;
 		}
 		
 		public static bool operator == (Device left, Device right)
 		{
-			throw new NotImplementedException ();
+			if (left is null)
+				return (right is null);
+			if (right is null)
+				return false;
+			return left.guid == right.guid;
 		}
 		
 		public static bool operator != (Device left, Device right)
 		{
-			throw new NotImplementedException ();
+			return !(left == right);
 		}
 
 		public override int GetHashCode ()
 		{
-			throw new NotImplementedException ();
+			return guid.GetHashCode();
 		}
 
 		public Device (IntPtr lp)
@@ -95,7 +106,7 @@ namespace Microsoft.DirectX.DirectSound
 
 		public Device (Guid guidDev)
 		{
-			throw new NotImplementedException ();
+			this.guid = guidDev;
 		}
 
 		public Device ()
