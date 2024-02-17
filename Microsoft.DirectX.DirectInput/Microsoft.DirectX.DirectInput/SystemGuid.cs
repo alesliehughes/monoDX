@@ -26,7 +26,9 @@ namespace Microsoft.DirectX.DirectInput
 {
 	public sealed class SystemGuid
 	{
+		[Microsoft.VisualC.IsConstModifier]
 		public static readonly Guid Mouse;
+		[Microsoft.VisualC.IsConstModifier]
 		public static readonly Guid Keyboard;
 
 		static SystemGuid()
