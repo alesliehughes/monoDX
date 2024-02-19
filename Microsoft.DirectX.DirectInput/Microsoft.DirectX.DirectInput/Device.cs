@@ -22,6 +22,7 @@
  */
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
 
@@ -29,6 +30,28 @@ namespace Microsoft.DirectX.DirectInput
 {
 	public sealed class Device : MarshalByRefObject, IDisposable
 	{
+		private IntPtr _device;
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void dinput_device_Release(IntPtr device);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_device_Acquire(IntPtr device);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_device_GetDeviceInfo(IntPtr device, out DIDEVICEINSTANCE info);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_device_Unacquire(IntPtr device);
+
+		private void CheckDisposed()
+		{
+			if (_device == IntPtr.Zero)
+			{
+				throw new ObjectDisposedException("Microsoft.DirectX.DirectInput.Device");
+			}
+		}
+
 		public DeviceImageInformationHeader ImageInformation
 		{
 			get
@@ -54,7 +77,9 @@ namespace Microsoft.DirectX.DirectInput
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				CheckDisposed();
+				Marshal.ThrowExceptionForHR(dinput_device_GetDeviceInfo(_device, out var info));
+				return new DeviceInstance(info);
 			}
 		}
 		public JoystickState CurrentJoystickState
@@ -95,9 +120,13 @@ namespace Microsoft.DirectX.DirectInput
 
 		public Device(Guid deviceGuid)
 		{
-			throw new NotImplementedException ();
+			_device = Manager.CreateDevice(deviceGuid);
 		}
 
+		~Device()
+		{
+			Dispose();
+		}
 
 		public override bool Equals(object compare)
 		{
@@ -116,21 +145,25 @@ namespace Microsoft.DirectX.DirectInput
 				return true;
 			}
 
-			return false;
+			return left._device == right._device;
 		}
 
 		public static bool operator !=(Device left, Device right)
 		{
-			return ( (Object)left != (Object)right) ? true : false;
+			return ! (left == right);
 		}
 
 		public override int GetHashCode()
 		{
-			throw new NotImplementedException ();
+			return  _device.GetHashCode();
 		}
 		public void Dispose()
 		{
-			throw new NotImplementedException ();
+			if (_device != IntPtr.Zero)
+			{
+				dinput_device_Release(_device);
+				_device = IntPtr.Zero;
+			}
 		}
 		public DeviceObjectList GetObjects(DeviceObjectTypeFlags flags)
 		{
@@ -138,11 +171,13 @@ namespace Microsoft.DirectX.DirectInput
 		}
 		public void Acquire()
 		{
-			throw new NotImplementedException ();
+			CheckDisposed();
+			Marshal.ThrowExceptionForHR(dinput_device_Acquire(_device));
 		}
 		public void Unacquire()
 		{
-			throw new NotImplementedException ();
+			CheckDisposed();
+			Marshal.ThrowExceptionForHR(dinput_device_Unacquire(_device));
 		}
 		public object GetDeviceState(Type customFormatType)
 		{
