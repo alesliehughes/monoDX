@@ -35,6 +35,20 @@ namespace Microsoft.DirectX.DirectInput
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void dinput_device_Release(IntPtr device);
 
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_device_Acquire(IntPtr device);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_device_Unacquire(IntPtr device);
+
+		private void CheckDisposed()
+		{
+			if (_device == IntPtr.Zero)
+			{
+				throw new ObjectDisposedException("Microsoft.DirectX.DirectInput.Device");
+			}
+		}
+
 		public DeviceImageInformationHeader ImageInformation
 		{
 			get
@@ -152,11 +166,13 @@ namespace Microsoft.DirectX.DirectInput
 		}
 		public void Acquire()
 		{
-			throw new NotImplementedException ();
+			CheckDisposed();
+			Marshal.ThrowExceptionForHR(dinput_device_Acquire(_device));
 		}
 		public void Unacquire()
 		{
-			throw new NotImplementedException ();
+			CheckDisposed();
+			Marshal.ThrowExceptionForHR(dinput_device_Unacquire(_device));
 		}
 		public object GetDeviceState(Type customFormatType)
 		{
