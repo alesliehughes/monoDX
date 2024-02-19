@@ -552,6 +552,13 @@ HRESULT CDECL dinput_device_Acquire(IDirectInputDevice8 *iface)
 	return hr;
 }
 
+HRESULT CDECL dinput_device_GetDeviceInfo(IDirectInputDevice8 *iface, DIDEVICEINSTANCE *info)
+{
+	WINE_TRACE("iface %p\n", iface);
+	info->dwSize = sizeof(*info);
+	return IDirectInputDevice8_GetDeviceInfo(iface, info);
+}
+
 HRESULT CDECL dinput_device_Unacquire(IDirectInputDevice8 *iface)
 {
 	WINE_TRACE("iface %p\n", iface);

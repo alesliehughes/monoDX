@@ -39,6 +39,9 @@ namespace Microsoft.DirectX.DirectInput
 		internal static extern int dinput_device_Acquire(IntPtr device);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_device_GetDeviceInfo(IntPtr device, out DIDEVICEINSTANCE info);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern int dinput_device_Unacquire(IntPtr device);
 
 		private void CheckDisposed()
@@ -74,7 +77,9 @@ namespace Microsoft.DirectX.DirectInput
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				CheckDisposed();
+				Marshal.ThrowExceptionForHR(dinput_device_GetDeviceInfo(_device, out var info));
+				return new DeviceInstance(info);
 			}
 		}
 		public JoystickState CurrentJoystickState
