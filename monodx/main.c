@@ -172,6 +172,18 @@ void CDECL dinput_Release(IDirectInput8 *iface)
     IDirectInput8_Release(iface);
 }
 
+HRESULT CDECL dinput_CreateDevice(IDirectInput8 *iface, const GUID* guid, LPDIRECTINPUTDEVICE8 *result)
+{
+	HRESULT hr;
+
+	WINE_TRACE("iface %p guid %s\n", iface, wine_dbgstr_guid(guid));
+
+	hr = IDirectInput8_CreateDevice(iface, guid, result, NULL);
+
+	WINE_TRACE("created %p\n", *result);
+	return hr;
+}
+
 struct dinput_enumstate
 {
     DIDEVICEINSTANCE *result;
@@ -231,6 +243,12 @@ HRESULT CDECL dinput_GetDevices(IDirectInput8 *iface, DWORD devtype, DWORD flags
     }
 
     return hr;
+}
+
+void CDECL dinput_device_Release(IDirectInputDevice8 *iface)
+{
+	WINE_TRACE("iface %p\n", iface);
+	IDirectInputDevice8_Release(iface);
 }
 
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *res)

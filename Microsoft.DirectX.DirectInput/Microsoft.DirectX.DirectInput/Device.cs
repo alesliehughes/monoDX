@@ -22,6 +22,7 @@
  */
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
 
@@ -29,6 +30,11 @@ namespace Microsoft.DirectX.DirectInput
 {
 	public sealed class Device : MarshalByRefObject, IDisposable
 	{
+		private IntPtr _device;
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern void dinput_device_Release(IntPtr device);
+
 		public DeviceImageInformationHeader ImageInformation
 		{
 			get
@@ -95,9 +101,13 @@ namespace Microsoft.DirectX.DirectInput
 
 		public Device(Guid deviceGuid)
 		{
-			throw new NotImplementedException ();
+			_device = Manager.CreateDevice(deviceGuid);
 		}
 
+		~Device()
+		{
+			Dispose();
+		}
 
 		public override bool Equals(object compare)
 		{
@@ -116,21 +126,25 @@ namespace Microsoft.DirectX.DirectInput
 				return true;
 			}
 
-			return false;
+			return left._device == right._device;
 		}
 
 		public static bool operator !=(Device left, Device right)
 		{
-			return ( (Object)left != (Object)right) ? true : false;
+			return ! (left == right);
 		}
 
 		public override int GetHashCode()
 		{
-			throw new NotImplementedException ();
+			return  _device.GetHashCode();
 		}
 		public void Dispose()
 		{
-			throw new NotImplementedException ();
+			if (_device != IntPtr.Zero)
+			{
+				dinput_device_Release(_device);
+				_device = IntPtr.Zero;
+			}
 		}
 		public DeviceObjectList GetObjects(DeviceObjectTypeFlags flags)
 		{

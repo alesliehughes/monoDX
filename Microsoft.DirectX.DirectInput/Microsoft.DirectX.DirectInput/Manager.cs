@@ -34,6 +34,9 @@ namespace Microsoft.DirectX.DirectInput
 		internal static extern int dinput_Create([Out] out IntPtr dinput);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern int dinput_CreateDevice(IntPtr dinput, [MarshalAs(UnmanagedType.LPStruct)] Guid guid, out IntPtr result);
+
+		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void dinput_Release(IntPtr dinput);
 
 		[DllImport("monodx.dll", CallingConvention=CallingConvention.Cdecl)]
@@ -53,6 +56,12 @@ namespace Microsoft.DirectX.DirectInput
 
 		internal Manager ()
 		{
+		}
+
+		internal static IntPtr CreateDevice (Guid guid)
+		{
+			Marshal.ThrowExceptionForHR(dinput_CreateDevice(_dinput, guid, out var result));
+			return result;
 		}
 
 		public static DeviceList GetDevices (ActionFormat actionFormat, EnumDevicesBySemanticsFlags flags)
